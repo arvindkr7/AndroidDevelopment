@@ -5,14 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class P2LinearLayoutDemo extends AppCompatActivity implements View.OnClickListener {
     Button clearbtn, submitbtn, cancelledbtn;
+
+    EditText name, regno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_p2_linear_layout_demo);
+
+        name=findViewById(R.id.NameInput);
+        regno=findViewById(R.id.RegNoInput);
+
+        name.setOnClickListener(this);
+        regno.setOnClickListener(this);
+
         clearbtn=findViewById(R.id.ClearButton);
         submitbtn=findViewById(R.id.SubmitButton);
         cancelledbtn=findViewById(R.id.CancelledButton);
@@ -21,13 +31,16 @@ public class P2LinearLayoutDemo extends AppCompatActivity implements View.OnClic
         submitbtn.setOnClickListener(this);
         cancelledbtn.setOnClickListener(this);
 
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.ClearButton:
-                System.out.println("Clear Button clicked");
+                //System.out.println("Clear Button clicked");
+                name.getText().clear();
+                regno.setText(""); // we can use any of these method to clear input texts
                 break;
 
             case R.id.SubmitButton:

@@ -23,12 +23,13 @@
             android:layout_weight="1" />
         <EditText
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="5dp"
             android:background="@color/white"
-            android:hint="Arvind Kumar"
+            android:hint="Full Name"
             android:inputType="text"
+            android:id="@+id/NameInput"
             />
 
     </LinearLayout>
@@ -49,12 +50,14 @@
 
         <EditText
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="5dp"
             android:background="@color/white"
-            android:hint="11810214"
+            android:hint="Registration Number"
             android:inputType="number"
+            android:id="@+id/RegNoInput"
+
 
             />
 
