@@ -27,6 +27,7 @@
             android:layout_weight="1"
             android:background="@color/white"
             android:hint="Arvind Kumar"
+            android:inputType="text"
             />
 
     </LinearLayout>
@@ -34,7 +35,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,6 +52,7 @@
             android:layout_weight="1"
             android:background="@color/white"
             android:hint="11810214"
+            android:inputType="number"
             />
 
 
@@ -61,17 +64,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_margin="10dp"
 
         >
 
     <Button
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="fill_parent"
         android:layout_weight="1"
         android:layout_margin="5px"
         android:text="Clear"
         android:textDirection="anyRtl"
-        android:id="@+id/clearButton"
+        android:id="@+id/ClearButton"
 
         />
 
@@ -86,6 +90,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Submit"
+                android:id="@+id/SubmitButton"
 
                 />
 
@@ -95,6 +100,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Cancelled"
+                android:id="@+id/CancelledButton"
                 />
 
 
@@ -108,3 +114,4 @@
 
 
 </LinearLayout>
+
