@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/black"
     tools:context=".P2LinearLayoutDemo">
 
     <LinearLayout
@@ -18,15 +17,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Name"
-            android:textColor="@color/white"
+
             android:textSize="30dp"
             android:layout_weight="1" />
         <EditText
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:padding="5dp"
-            android:background="@color/white"
+
             android:hint="Full Name"
             android:inputType="text"
             android:id="@+id/NameInput"
@@ -45,16 +44,16 @@
             android:layout_weight="1"
             android:text="Reg No."
             android:textSize="30dp"
-            android:textColor="@color/white"
             />
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:background="@color/white"
+            android:layout_weight="2"
+            android:padding="10dp"
+
             android:hint="Registration Number"
+
             android:inputType="number"
             android:id="@+id/RegNoInput"
 
@@ -70,31 +69,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp"
+
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
 
         >
 
     <Button
         android:layout_width="0dp"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_margin="5px"
-        android:text="Clear"
-        android:textDirection="anyRtl"
+        android:text="C\nl\ne\na\nr"
         android:id="@+id/ClearButton"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
 
         />
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_height="fill_parent"
             android:orientation="vertical"
             android:layout_gravity="right"
             >
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:text="Submit"
                 android:id="@+id/SubmitButton"
 
@@ -104,8 +108,8 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="Cancelled"
+                android:layout_height="0dp"
+                android:text="Cancel"
                 android:id="@+id/CancelledButton"
                 />
 
