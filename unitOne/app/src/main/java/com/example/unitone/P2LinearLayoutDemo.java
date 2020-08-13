@@ -46,6 +46,7 @@ public class P2LinearLayoutDemo extends AppCompatActivity implements View.OnClic
                 // we can use any of these method to clear input texts
                 if (userName.isEmpty() && regnum.isEmpty()){
                     toast("Nothing to clear");
+
                 }
                 else if (!userName.isEmpty() && !regnum.isEmpty()){
                     name.getText().clear();
