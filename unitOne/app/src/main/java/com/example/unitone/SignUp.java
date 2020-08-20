@@ -15,6 +15,7 @@ import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,10 +23,24 @@ import static com.example.unitone.R.*;
 
 public class SignUp extends AppCompatActivity {
 
+    EditText fName, lName, emailId, pswrd, confirmPswrd;
+    CheckBox agree;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_sign_up);
+
+
+
+        fName=findViewById(id.firstName);
+        lName=findViewById(id.lastName);
+        emailId=findViewById(id.emailid);
+        pswrd=findViewById(id.pasword);
+        confirmPswrd=findViewById(id.confirmPassword);
+
+        agree=findViewById(id.checkbox);
+
 
         TextView textView= findViewById(id.statement);
         String statement = "I accept the Terms of Use & Privacy Policy";
@@ -70,5 +85,47 @@ public class SignUp extends AppCompatActivity {
  */
 
 
+    }
+    public  void submit(View view){
+
+        String fname= fName.getText().toString();
+        String lname=lName.getText().toString();
+        String email= emailId.getText().toString();
+        String password= pswrd.getText().toString();
+        String confirmPassword= confirmPswrd.getText().toString();
+        Boolean check= agree.isChecked();
+
+        String msg="";
+
+        if (fname.isEmpty() || lname.isEmpty()|| email.isEmpty()|| password.isEmpty() ||(password!=confirmPassword) || !check) {
+
+
+            msg+="Kindly correct all the required details:";
+            if(fname.isEmpty()){
+                msg+="\nFirst Name";
+            }
+            if (lname.isEmpty()){
+                msg+="\nLast Name";
+            }
+            if (email.isEmpty()){
+                msg+= "\nEmail Address";
+            }
+            if(password.isEmpty() || confirmPassword.isEmpty()){
+                msg+="\nYou must set your password";
+            } else if (password != confirmPassword) {
+                msg+= "\nPassword doesn't match!";
+            }
+        if (!check) {
+                msg+="\nYou must agree first to continue!";
+            }
+        customToast(msg);
+        }
+        else{
+            customToast("Signup successful");
+        }
+    }
+
+    public void customToast(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }
