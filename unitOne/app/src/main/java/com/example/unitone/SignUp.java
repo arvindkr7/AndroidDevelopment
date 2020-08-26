@@ -100,32 +100,37 @@ public class SignUp extends AppCompatActivity {
         if (fname.isEmpty() || lname.isEmpty()|| email.isEmpty()|| password.isEmpty() ||(password!=confirmPassword) || !check) {
 
 
-            msg+="Kindly correct all the required details:";
+            msg+="something went wrong:";
             if(fname.isEmpty()){
                 msg+="\nFirst Name";
+                fName.setHintTextColor(Color.RED);
             }
             if (lname.isEmpty()){
                 msg+="\nLast Name";
+                lName.setHintTextColor(Color.RED);
             }
             if (email.isEmpty()){
                 msg+= "\nEmail Address";
+                emailId.setHintTextColor(Color.RED);
             }
             if(password.isEmpty() || confirmPassword.isEmpty()){
                 msg+="\nYou must set your password";
-            } else if (password != confirmPassword) {
-                msg+= "\nPassword doesn't match!";
+                pswrd.setHintTextColor(Color.RED);
+                confirmPswrd.setHintTextColor(Color.RED);
+            }else if(!password.equals(confirmPassword)){
+               msg+= "\nPassword doesn't match";
+               confirmPswrd.setHintTextColor(Color.RED);
             }
         if (!check) {
                 msg+="\nYou must agree first to continue!";
+                agree.setBackgroundColor(Color.RED);
             }
-        customToast(msg);
         }
         else{
-            customToast("Signup successful");
+            msg="Signup successful";
         }
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+
     }
 
-    public void customToast(String msg){
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
 }

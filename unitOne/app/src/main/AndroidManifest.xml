@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Widgets"></activity>
-        <activity android:name=".RelativeLayout"></activity>
+        <activity android:name=".SignUp" />
+        <activity android:name=".Widgets" />
+        <activity android:name=".RelativeLayout" />
         <activity android:name=".P2LinearLayoutDemo" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".SignUp">
+        <activity android:name=".SpinnerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
