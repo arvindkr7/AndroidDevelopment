@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">UnitThree</string>
+    <string name="app_bar">ChangeList</string>
+    <string-array name="subjects">
+        <item>dbms</item>
+        <item>daa</item>
+        <item>python</item>
+        <item>java</item>
+    </string-array>
+    <string-array name="courses">
+
+        <item>BBA</item>
+        <item>B.E</item>
+        <item>B.Tech</item>
+        <item>MBA</item>
+    </string-array>
+</resources>

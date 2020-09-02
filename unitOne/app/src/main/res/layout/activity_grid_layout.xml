@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GridLayout"
+    android:rowCount="3"
+    android:columnCount="3"
+
+    >
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/earth"
+        android:scaleType="center"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        />
+    <Button android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="#DID YOU KNOW"
+        android:textSize="30dp"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        />
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/hello"
+        android:layout_row="0"
+        android:scaleType="center"
+        android:layout_column="2"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        />
+<!--  Row 1-->
+    <Button android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="#HAPPY FRIDAY"
+        android:textSize="25dp"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        />
+    <ImageButton android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_columnWeight="1"
+        android:layout_row="1"
+        android:layout_column="1"
+
+        android:scaleType="center"
+        android:layout_rowWeight="1"
+        android:src="@drawable/hello"/>
+
+    <Button android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textSize="30dp"
+        android:layout_row="1"
+        android:layout_column="2"
+        android:text="#MINDFULNESS"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        />
+<!--ROw 2-->
+
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/earth"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:scaleType="center"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        />
+    <Button android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="#LADY BOSS"
+        android:textSize="40dp"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        />
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/hello"
+        android:layout_row="2"
+        android:layout_column="2"
+        android:scaleType="center"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        />
+
+
+</GridLayout>
