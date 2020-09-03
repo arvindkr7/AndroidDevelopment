@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class listViewRes extends AppCompatActivity {
 ListView lv;
@@ -28,6 +30,14 @@ int colors[]={Color.WHITE, Color.RED, Color.BLUE, Color.CYAN, Color.GREEN, Color
     }
 
     public void Change(View view) {
+
+        Toast t= new Toast(this);
+        t.setText("Changed");
+        t.setDuration(Toast.LENGTH_SHORT);
+        t.setGravity(Gravity.TOP , 0, 0);
+        t.show();
+        
+
         lv=findViewById(R.id.lv);
         lv.setBackgroundColor(colors[count]);
         count+=1;
