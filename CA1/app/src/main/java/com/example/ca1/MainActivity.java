@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter ap= new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, al);
         ap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(ap);
-submit.setEnabled(false);
+
         age.addTextChangedListener(new TextWatcher() {
 
 
@@ -152,6 +152,6 @@ submit.setEnabled(false);
         makeToast("Cancelled");
     }
     public void makeToast(String msg){
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 }
