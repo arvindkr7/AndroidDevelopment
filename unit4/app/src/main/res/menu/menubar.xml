@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-
-    <item android:id="@+id/copy"
-        android:icon="@drawable/ic_content_copy_24px"
-        android:title="Copy"
-        app:showAsAction="ifRoom" />
-    <item android:id="@+id/share"
-        android:icon="@drawable/ic_share_24px"
-        android:title="Share"
-        app:showAsAction="ifRoom" />
-    <item android:id="@+id/more"
-        android:icon="@drawable/ic_more_vert_24px"
-        android:title="More"
-        app:showAsAction="ifRoom"
-        />
+>
+<item android:id="@+id/search"
+    android:title="Search"
+    app:showAsAction="always"
+    android:icon="@drawable/ic_baseline_search_24"
+    app:actionViewClass="android.widget.SearchView"
+    />
+<item android:id="@+id/copy"
+android:icon="@drawable/ic_content_copy_24px"
+android:title="Copy"
+app:showAsAction="always" />
+<item android:id="@+id/share"
+android:icon="@drawable/ic_share_24px"
+android:title="Share"
+app:showAsAction="always" />
+<item android:id="@+id/more"
+android:icon="@drawable/ic_more_vert_24px"
+android:title="More"
+app:showAsAction="always"
+/>
 </menu>
