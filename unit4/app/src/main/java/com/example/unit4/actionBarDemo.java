@@ -14,7 +14,7 @@ public class actionBarDemo extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menubar, menu);
-
+        
         MenuItem search=menu.findItem(R.id.search);
         SearchView sv=(SearchView) search.getActionView();
         sv.setQueryHint("Enter anything to search");
