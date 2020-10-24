@@ -17,9 +17,10 @@
         <ImageView
             android:id="@+id/showImg"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="400dp"
             android:layout_weight="1"
             android:layout_gravity="fill"
+            android:scaleType="centerCrop"
             />
         <Button
             android:id="@+id/btnPicture"

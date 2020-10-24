@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class welcome extends AppCompatActivity {
 ImageView imageView;
-
+boolean isCaptured=false;
 Bitmap bitmap;
 String user;
 
@@ -43,7 +43,8 @@ Button capture;
            public void onClick(View view) {
                Intent captureIntent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-               startActivityForResult(captureIntent, 11);
+
+               startActivityForResult(captureIntent, 7);
            }
        });
 
@@ -52,11 +53,16 @@ Button capture;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==11){
+
+        if (requestCode==7){
             bitmap =(Bitmap)data.getExtras().get("data");
             imageView.setImageBitmap(bitmap);
+            isCaptured=true;
 
+        }else{
+            isCaptured=false;
+            Toast.makeText(this, "Unable to open camera", Toast.LENGTH_SHORT).show();
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
