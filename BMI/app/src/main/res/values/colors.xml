@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimary2">#131634</color>
+
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimaryDark2">#0B0E27</color>
+
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent2">#DF0050</color>
+<!--    App color -->
+    <color name="bodyBackground">#0B0D1E</color>
+    <color name="genderBox">#D6D7D7</color>
+    <color name="heightBox">#1B1A2E</color>
+
+</resources>

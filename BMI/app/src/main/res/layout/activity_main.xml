@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/bodyBackground"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="vertical">
+<!-- Gender Section-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/btnGenderMale"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_male"
+            android:text="Male"
+            android:textAllCaps="true"
+            android:textSize="17dp"
+
+            />
+        <Button
+            android:id="@+id/btnGenderFemale"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_femenine"
+            android:text="Female"
+            android:textAllCaps="true"
+            android:textSize="17dp"
+            />
+    </LinearLayout>
+
+<!--   Height Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary2"
+        android:gravity="center"
+        android:layout_marginHorizontal="4dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height"
+            android:textAllCaps="true"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/genderBox"
+            android:textSize="17dp"
+
+
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+
+            >
+            <TextView
+                android:id="@+id/txtHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="183"
+                android:textSize="50dp"
+                android:textColor="#ffffff"
+                android:textFontWeight="800"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cm"
+                android:textColor="@color/genderBox"
+                android:textSize="17dp"
+                android:textAllCaps="true"
+
+
+                />
+        </LinearLayout>
+        <SeekBar
+            android:id="@+id/seekHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="200"
+            android:progress="60"
+            />
+    </LinearLayout>
+<!--    Height Section Ends Here -->
+
+<!--   Bottom Section WEIGHT & AGE -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+<!--       WEIGHT SECTION -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/genderBox"
+            android:gravity="center"
+            android:layout_margin="4dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weight"
+                android:textAllCaps="true"
+                android:layout_gravity="center"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/txtWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="74"
+                android:textSize="50dp"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary2"
+                />
+<!--       minus plus buttons      -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/btnWeightMinus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_minus"/>
+                <ImageButton
+                    android:id="@+id/btnWeightPlus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_plus"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+<!--        AGE SECTION -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/genderBox"
+            android:gravity="center"
+            android:layout_margin="4dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AGE"
+                android:textAllCaps="true"
+                android:layout_gravity="center"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/txtAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24"
+               android:textSize="50dp"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary2"
+                />
+            <!--       minus plus buttons      -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/btnAgeMinus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_minus"/>
+                <ImageButton
+                    android:id="@+id/btnAgePlus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_plus"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+<!--    weight age section ends here-->
+
+
+</LinearLayout>
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="calculate your bmi"
+        android:textAllCaps="true"
+        android:textSize="17dp"
+        android:textColor="#ffffff"
+
+        android:textFontWeight="800"
+        android:background="@drawable/custom_button"
+        />
+
+</LinearLayout>
