@@ -17,8 +17,10 @@ TextView name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setTitle(R.string.register_status);
         setContentView(R.layout.activity_register_status);
+        getSupportActionBar().hide();
         name=findViewById(R.id.registerName);
         img=findViewById(R.id.registerImg);
 
@@ -32,7 +34,7 @@ TextView name;
         Snackbar snackbar= Snackbar.make(img, "register done", Snackbar.LENGTH_LONG).setAction("Back", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(getApplicationContext(), welcome.class);
+                Intent i= new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
             }
         });

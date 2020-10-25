@@ -14,16 +14,27 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         >
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:cardElevation="1dp"
+            >
         <ImageView
             android:id="@+id/showImg"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_gravity="fill"
             android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_image_24"
             />
+        </androidx.cardview.widget.CardView>
         <Button
             android:id="@+id/btnPicture"
+            android:drawableStart="@drawable/ic_baseline_camera_alt_24"
+            android:drawablePadding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Click Picture"
@@ -36,6 +47,8 @@
             android:layout_height="wrap_content"
             android:text="Browse"
             android:onClick="browse"
+            android:drawableStart="@drawable/ic_baseline_language_24"
+            android:drawablePadding="5dp"
             />
         <Button
             android:id="@+id/btnSubmit"
@@ -43,6 +56,9 @@
             android:layout_height="wrap_content"
             android:text="Submit"
             android:onClick="submit"
+            android:drawableStart="@drawable/ic_baseline_check_24"
+            android:drawablePadding="5dp"
+
             />
 
 

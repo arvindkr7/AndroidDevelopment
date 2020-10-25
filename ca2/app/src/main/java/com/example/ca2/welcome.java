@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class welcome extends AppCompatActivity {
 ImageView imageView;
 boolean isCaptured=false;
+boolean hasBrowsed=false;
 Bitmap bitmap;
 String user;
 
@@ -67,16 +68,24 @@ Button capture;
     }
 
     public void browse(View view){
+       hasBrowsed=true;
       Intent i= new Intent(Intent.ACTION_WEB_SEARCH);
        i.setData(Uri.parse("https://www.google.com"));
        startActivity(i);
     }
 
     public void submit(View view){
+       if (isCaptured && hasBrowsed){
         Intent i=new Intent(this, registerStatus.class);
         i.putExtra("welcomeImg", bitmap);
         i.putExtra("name",user);
 
-        startActivity(i);
+        startActivity(i);}
+       else if (!isCaptured){
+           Toast.makeText(this, "Capture the image first to continue", Toast.LENGTH_SHORT).show();
+       }
+       else {
+           Toast.makeText(this, "Browse first to continue", Toast.LENGTH_SHORT).show();
+       }
     }
 }

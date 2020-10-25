@@ -1,27 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-tools:context=".registerStatus"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
+    tools:context=".registerStatus"
+
     >
     <ImageView
         android:id="@+id/registerImg"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:foregroundGravity="fill_horizontal"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:id="@+id/registerName"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome"
-        android:textSize="20dp"
+        android:minHeight="410dp"
+        android:src="@drawable/bg"
+        android:scaleType="centerCrop"
         />
+    <LinearLayout
+        android:background="@drawable/bgcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:padding="20dp">
+<!--        Successful Text-->
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registration Status!"
+            android:textSize="28dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/colorAccent"
+            android:layout_gravity="center"
+
+            />
+<!--        description text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You have been successfully registered."
+            android:textSize="16dp"
+            android:fontFamily="@font/quicksand_bold"
+
+            android:layout_gravity="center"
+            android:textColor="#3A3A3A"
+            android:layout_marginVertical="5dp"
 
 
-</LinearLayout>
+            />
+<!--        Horizontal Line -->
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/bg_backbutton"
+            />
+
+<!--        Label for Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Name"
+            android:textSize="14dp"
+            android:fontFamily="@font/quicksand_regular"
+            android:textColor="#3A3A3A"
+            android:layout_gravity="start"
+
+            />
+
+<!--        Textbox for Name -->
+
+        <TextView
+            android:id="@+id/registerName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingLeft="18dp"
+            android:text="Your Name"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:drawableStart="@drawable/ic_baseline_person_focused"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            />
+<!--        Label for E-mail address-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your E-mail address"
+            android:textSize="14dp"
+            android:fontFamily="@font/quicksand_regular"
+            android:textColor="#3A3A3A"
+            android:layout_gravity="start"
+            android:layout_marginBottom="10dp"
+
+            />
+<!--        Textbox for E-mail address-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingLeft="18dp"
+            android:text="Your E-mail address"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:drawableStart="@drawable/ic_email_focused"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            />
+
+<!--        Back button -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:text="Back"
+            android:textColor="@android:color/white"
+            android:textSize="18dp"
+            android:fontFamily="@font/quicksand_bold"
+
+            android:background="@drawable/bg_backbutton"
+            android:layout_marginBottom="50dp"
+            />
+
+    </LinearLayout>
+</RelativeLayout>
