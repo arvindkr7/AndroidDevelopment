@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle(R.string.sign_in);
         setContentView(R.layout.activity_main);
-        txtUserName=findViewById(R.id.inputUserName);
+        txtUserName=findViewById(R.id.inputUserEmail);
         txtPassword=findViewById(R.id.inputPassword);
     }
 
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         String userName= txtUserName.getText().toString();
         String password=txtPassword.getText().toString();
 
-        if (userName.equals("ag30982") && password.matches("12345")){
+        if (userName.equals("ag30982@gmail.com") && password.matches("12345")){
             Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
             Intent intent=new Intent(this, welcome.class);
             intent.putExtra("userName",userName);

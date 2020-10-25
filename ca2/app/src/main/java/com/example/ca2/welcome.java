@@ -11,31 +11,39 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class welcome extends AppCompatActivity {
 ImageView imageView;
+TextView txtEmail;
+EditText edtName;
 boolean isCaptured=false;
 boolean hasBrowsed=false;
+boolean hasName=false;
 Bitmap bitmap;
-String user;
+String userEmail, userName, toastMsg;
 
 Button capture;
    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setTitle(R.string.welcome);
         setContentView(R.layout.activity_welcome);
         imageView=findViewById(R.id.showImg);
+        txtEmail=findViewById(R.id.txtEmail);
+        edtName=findViewById(R.id.inputUserName);
        Intent i=getIntent();
-       user=i.getStringExtra("userName");
+       userEmail=i.getStringExtra("userName");
 
-       if (user!=null) {
-
-           Toast.makeText(this, "Welcome for registering the user name you entered is " + user, Toast.LENGTH_SHORT).show();
+       if (userEmail!=null) {
+            txtEmail.setText(userEmail);
+           showToast("Welcome!");
        }
 
        capture=findViewById(R.id.btnPicture);
@@ -43,8 +51,6 @@ Button capture;
            @Override
            public void onClick(View view) {
                Intent captureIntent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-
                startActivityForResult(captureIntent, 7);
            }
        });
@@ -62,7 +68,7 @@ Button capture;
 
         }else{
             isCaptured=false;
-            Toast.makeText(this, "Unable to open camera", Toast.LENGTH_SHORT).show();
+            showToast( "Unable to open camera");
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
@@ -75,17 +81,26 @@ Button capture;
     }
 
     public void submit(View view){
-       if (isCaptured && hasBrowsed){
+       userName= edtName.getText().toString();
+       hasName=!userName.matches("");
+       if (isCaptured && hasBrowsed && hasName){
         Intent i=new Intent(this, registerStatus.class);
         i.putExtra("welcomeImg", bitmap);
-        i.putExtra("name",user);
-
+        i.putExtra("userEmail",userEmail);
+        i.putExtra("userName",userName);
+        toastMsg="everything Ok";
         startActivity(i);}
        else if (!isCaptured){
-           Toast.makeText(this, "Capture the image first to continue", Toast.LENGTH_SHORT).show();
+           toastMsg="Capture the image first to continue";
        }
-       else {
-           Toast.makeText(this, "Browse first to continue", Toast.LENGTH_SHORT).show();
+       else if (!hasBrowsed){
+           toastMsg="Browse first to continue";
+       }else{
+           toastMsg="Provide your name";
        }
+       showToast(toastMsg);
+    }
+    protected  void showToast(String msg){
+        Toast.makeText(welcome.this, msg, Toast.LENGTH_LONG).show();
     }
 }
