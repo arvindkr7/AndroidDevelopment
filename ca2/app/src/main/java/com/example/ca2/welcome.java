@@ -39,7 +39,7 @@ Button capture;
         txtEmail=findViewById(R.id.txtEmail);
         edtName=findViewById(R.id.inputUserName);
        Intent i=getIntent();
-       userEmail=i.getStringExtra("userName");
+       userEmail=i.getStringExtra("userEmail");
 
        if (userEmail!=null) {
             txtEmail.setText(userEmail);
@@ -84,11 +84,12 @@ Button capture;
        userName= edtName.getText().toString();
        hasName=!userName.matches("");
        if (isCaptured && hasBrowsed && hasName){
+           toastMsg="everything Ok";
         Intent i=new Intent(this, registerStatus.class);
         i.putExtra("welcomeImg", bitmap);
         i.putExtra("userEmail",userEmail);
         i.putExtra("userName",userName);
-        toastMsg="everything Ok";
+
         startActivity(i);}
        else if (!isCaptured){
            toastMsg="Capture the image first to continue";

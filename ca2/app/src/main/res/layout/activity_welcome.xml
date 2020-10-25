@@ -97,7 +97,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:layout_marginRight="3dp"
-                android:elevation="0dp"
+                android:elevation="1dp"
                 />
             <Button
                 android:id="@+id/btnBrowse"
@@ -115,8 +115,9 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:layout_marginLeft="3dp"
-                android:elevation="0dp"
+                android:elevation="1dp"
                 android:onClick="browse"
+
                 />
 
         </LinearLayout>
@@ -153,6 +154,7 @@
 
             android:background="@drawable/bg_backbutton"
             android:onClick="submit"
+            android:elevation="3dp"
 
             />
 
