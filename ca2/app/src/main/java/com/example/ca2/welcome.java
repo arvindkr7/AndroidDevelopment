@@ -40,10 +40,19 @@ Button capture;
         edtName=findViewById(R.id.inputUserName);
        Intent i=getIntent();
        userEmail=i.getStringExtra("userEmail");
+       userName=i.getStringExtra("userName");
+       bitmap=(Bitmap)i.getParcelableExtra("welcomeImg");
 
        if (userEmail!=null) {
             txtEmail.setText(userEmail);
            showToast("Welcome!");
+       }
+       if (userName!=null){
+           edtName.setText(userName);
+       }
+       if (bitmap!=null){
+           imageView.setImageBitmap(bitmap);
+           isCaptured=true;
        }
 
        capture=findViewById(R.id.btnPicture);
@@ -102,6 +111,6 @@ Button capture;
        showToast(toastMsg);
     }
     protected  void showToast(String msg){
-        Toast.makeText(welcome.this, msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(welcome.this, msg, Toast.LENGTH_SHORT).show();
     }
 }
