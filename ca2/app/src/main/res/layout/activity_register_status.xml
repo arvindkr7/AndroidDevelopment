@@ -61,6 +61,13 @@
             />
 
 <!--        Label for Name -->
+        <LinearLayout
+            android:id="@+id/lytName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,6 +97,12 @@
             android:gravity="center_vertical"
             android:elevation="1dp"
             />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 <!--        Label for E-mail address-->
         <TextView
 
@@ -120,23 +133,55 @@
             android:gravity="center_vertical"
             android:elevation="1dp"
             />
+        </LinearLayout>
 
-<!--        Back button -->
-        <Button
-            android:id="@+id/btnBack"
+<!--        Buttons -->
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:text="Back"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:fontFamily="@font/quicksand_bold"
-            android:paddingLeft="20dp"
-            android:drawableStart="@drawable/ic_baseline_arrow_back_24"
-            android:background="@drawable/bg_backbutton"
-            android:layout_marginBottom="50dp"
-            android:elevation="3dp"
-            />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="20dp"
+            >
+            <Button
+                android:id="@+id/btnAreYouDone"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Are you done"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:drawableStart="@drawable/ic_baseline_live_help_24"
+                android:background="@drawable/bg_capture_button"
+                android:paddingLeft="20dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_marginRight="3dp"
+                android:elevation="3dp"
+                />
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Back"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:drawableEnd="@drawable/ic_baseline_exit_to_app_24"
+                android:background="@drawable/bg_browse_button"
+                android:paddingRight="20dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_marginLeft="3dp"
+                android:elevation="3dp"
+
+
+                />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 </RelativeLayout>

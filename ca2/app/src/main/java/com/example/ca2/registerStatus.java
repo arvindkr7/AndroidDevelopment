@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +17,8 @@ import com.google.android.material.snackbar.Snackbar;
 public class registerStatus extends AppCompatActivity {
 ImageView img;
 TextView name, email;
-Button btnBack;
+Button btnBack, btnAreYouDone;
+LinearLayout lytName;
 String userName, userEmail;
 Bitmap bitmap;
     @Override
@@ -29,13 +31,21 @@ Bitmap bitmap;
         name=findViewById(R.id.registerName);
         img=findViewById(R.id.registerImg);
         email=findViewById(R.id.registerEmail);
+        lytName=findViewById(R.id.lytName);
 
         Intent intent=getIntent();
         userName=intent.getStringExtra("userName");
         userEmail=intent.getStringExtra("userEmail");
         bitmap=(Bitmap)intent.getParcelableExtra("welcomeImg");
+        if (userName.isEmpty()){
+            lytName.setVisibility(View.GONE);
 
-        name.setText(userName);
+        }else{
+            name.setText(userName);
+            lytName.setVisibility(View.VISIBLE);
+        }
+
+
         email.setText(userEmail);
         img.setImageBitmap(bitmap);
         btnBack=findViewById(R.id.btnBack);
@@ -43,26 +53,36 @@ Bitmap bitmap;
             @Override
             public void onClick(View view) {
 
-                Intent i= new Intent(getApplicationContext(), welcome.class);
-                i.putExtra("welcomeImg", bitmap);
-                i.putExtra("userEmail",userEmail);
-                i.putExtra("userName",userName);
+                Intent i= new Intent(getApplicationContext(), MainActivity.class);
+
                 startActivity(i);
             }
         });
-
-        Snackbar snackbar= Snackbar.make(img, "Registration done successfully.", Snackbar.LENGTH_LONG).setAction("Done", new View.OnClickListener() {
+        btnAreYouDone=findViewById(R.id.btnAreYouDone);
+        btnAreYouDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Snackbar snackbar= Snackbar.make(img, "Registration done successfully.", Snackbar.LENGTH_LONG).setAction("Edit", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
 
-                Intent i= new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-                Toast.makeText(registerStatus.this, "Your registration is successfully received.", Toast.LENGTH_LONG).show();
+                        Intent i= new Intent(getApplicationContext(), welcome.class);
+
+                        i.putExtra("userEmail",userEmail);
+                        i.putExtra("userName",userName);
+                        i.putExtra("welcomeImg", bitmap);
+                        startActivity(i);
+                        Toast.makeText(registerStatus.this, "You can update details.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+                snackbar.show();
+
             }
         });
 
 
-        snackbar.show();
 
 
 
