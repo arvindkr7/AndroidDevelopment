@@ -47,7 +47,7 @@ Button capture;
 
        if (userEmail!=null) {
             txtEmail.setText(userEmail);
-           showToast("Thank you "+userEmail+" for registering :)");
+           showToast("Welcome! "+userEmail+" for registering :)");
        }
        if (userName!=null){
            edtName.setText(userName);

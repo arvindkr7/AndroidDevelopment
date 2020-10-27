@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         String number=edtNumber.getText().toString().trim();
         String message=edtMessage.getText().toString().trim();
 
-        if (number.isEmpty()){
+        if (number.isEmpty() || number.length()!=10 || number.startsWith("0")){
             showToast("Enter valid number");
         }else if (message.isEmpty()){
             showToast("empty message can't be sent");

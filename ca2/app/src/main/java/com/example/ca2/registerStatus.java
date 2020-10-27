@@ -53,7 +53,7 @@ Bitmap bitmap;
             @Override
             public void onClick(View view) {
 
-                Intent i= new Intent(getApplicationContext(), MainActivity.class);
+                Intent i= new Intent(getApplicationContext(), signin.class);
 
                 startActivity(i);
             }
