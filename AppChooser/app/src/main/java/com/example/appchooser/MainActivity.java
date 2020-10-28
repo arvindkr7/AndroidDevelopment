@@ -42,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void SMS(View view){
-        Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-        smsIntent.setType("vnd.android-dir/mms-sms");
-        smsIntent.putExtra("address", "9910995297");
-        smsIntent.putExtra("sms_body","Body of Message");
-        startActivity(smsIntent);
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setType("vnd.android-dir/mms-sms");
+        i.putExtra("address", "9910995297");
+        i.putExtra("sms_body","This message would be sent...");
+        startActivity(i);
     }
     protected void sendSMS(View view){
         String number=edtNumber.getText().toString().trim();
@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
         }else {
 
             try {
-                SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(number, null, message, null, null);
+                SmsManager smgr = SmsManager.getDefault();
+                smgr.sendTextMessage(number, null, message, null, null);
                 showToast("message sent");
             } catch (Exception e) {
                     showToast("Exception encountered "+e);
