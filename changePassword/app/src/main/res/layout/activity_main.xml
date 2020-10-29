@@ -57,7 +57,10 @@
             android:layout_weight="1"
             android:layout_height="50dp"
             android:text="change"
-
+            android:textSize="17sp"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/custom_change_button"
+            android:layout_marginRight="3dp"
             />
         <Button
             android:id="@+id/btnSubmit"
@@ -65,7 +68,10 @@
             android:layout_weight="1"
             android:layout_height="50dp"
             android:text="Submit"
-
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/custom_login_button"
+            android:layout_marginLeft="3dp"
 
             />
     </LinearLayout>
