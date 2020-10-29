@@ -1,7 +1,9 @@
 package com.example.changepassword;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +19,7 @@ import java.util.regex.Matcher;
 public class MainActivity extends AppCompatActivity {
 EditText uemail, upass;
 CheckBox forgot;
-Button submit;
+Button submit, change;
 String email, pswrd, updtdPswrd;
 String emailregex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 boolean isemail=false, ispass;
@@ -43,6 +45,7 @@ boolean isemail=false, ispass;
         upass=findViewById(R.id.edtPassword);
         forgot=findViewById(R.id.chkForgotPassword);
         submit=findViewById(R.id.btnSubmit);
+        change=findViewById(R.id.btnChange);
 
 
         forgot.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -73,6 +76,42 @@ boolean isemail=false, ispass;
 
             }
         });
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(
+                        MainActivity.this);
+                builder.setTitle("Change Password");
+                builder.setMessage("Are you sure?");
+                builder.setNegativeButton("NO",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                Toast.makeText(getApplicationContext(),"No is clicked",Toast.LENGTH_LONG).show();
+                            }
+                        });
+                builder.setPositiveButton("YES",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                Toast.makeText(getApplicationContext(),"Yes is clicked",Toast.LENGTH_LONG).show();
+                                Intent i= new Intent(getApplicationContext(), forgotPassword.class);
+                                startActivity(i);
+                            }
+                        });
+                builder.setNeutralButton("CANCEL",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                Toast.makeText(getApplicationContext(),"Cancel is clicked",Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                builder.show();
+            }
+        });
+
+
 
     }
     protected void showToast(String msg){
