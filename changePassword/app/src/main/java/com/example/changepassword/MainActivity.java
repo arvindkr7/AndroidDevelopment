@@ -7,12 +7,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.regex.*;
 import java.util.regex.Matcher;
 
@@ -94,6 +97,12 @@ boolean isemail=false, ispass;
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
                                                 int which) {
+                                final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1);
+                                arrayAdapter.add("Alphabet");
+                                arrayAdapter.add("Numeric");
+                                arrayAdapter.add("Special Character");
+
+
                                 Toast.makeText(getApplicationContext(),"Yes is clicked",Toast.LENGTH_LONG).show();
                                 Intent i= new Intent(getApplicationContext(), forgotPassword.class);
                                 startActivity(i);

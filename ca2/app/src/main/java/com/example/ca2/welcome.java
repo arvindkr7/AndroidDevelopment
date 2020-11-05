@@ -41,6 +41,9 @@ Button capture;
         edtName=findViewById(R.id.inputUserName);
        Intent i=getIntent();
        userEmail=i.getStringExtra("userEmail");
+
+
+
        userName=i.getStringExtra("userName");
        bitmap=(Bitmap)i.getParcelableExtra("welcomeImg");
 
