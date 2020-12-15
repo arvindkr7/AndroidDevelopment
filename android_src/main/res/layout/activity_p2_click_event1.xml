@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".P2ClickEvent1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello !"
+        android:textSize="36sp"
+        android:layout_gravity="center" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click1"
+        android:hapticFeedbackEnabled="true"
+        android:layout_gravity="center"
+        android:id="@+id/but1"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click2"
+        android:hapticFeedbackEnabled="true"
+        android:layout_gravity="center"
+        android:id="@+id/but2"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click3"
+        android:hapticFeedbackEnabled="true"
+        android:layout_gravity="center"
+        android:id="@+id/but3"
+        android:onClick="clickMe"/>
+</LinearLayout>

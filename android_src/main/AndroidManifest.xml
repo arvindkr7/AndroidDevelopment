@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android_cse224">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/android1"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".P41_2"></activity>
+        <activity android:name=".P41"></activity>
+        <activity android:name=".P40" />
+        <activity android:name=".P39" />
+        <activity android:name=".P38HwActivity1" />
+        <activity android:name=".P37IconOnPopUpMenu" />
+        <activity android:name=".P36AppChooser" />
+        <activity android:name=".P35ContextmenuOnListview" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".P34SetNewPassword" />
+        <activity android:name=".P34ChangePassword" />
+        <activity android:name=".P33HwBmiFoodSuggestion" />
+        <activity android:name=".P32RandomNumber" />
+        <activity android:name=".P31CustomAlertDialog" />
+        <activity android:name=".P30AlertDialog2" />
+        <activity android:name=".P29AlertDialog" />
+        <activity android:name=".P28ContextMenu" />
+        <activity android:name=".P27PopupMenu" />
+        <activity android:name=".P26SearchBar" />
+        <activity android:name=".P25OptionMenu" />
+        <activity android:name=".P24OpenMap" />
+        <activity android:name=".P23HwContactDialler" />
+        <activity android:name=".P22HwIntent" > </activity>
+        <activity android:name=".P21ImplicitIntent" />
+        <activity android:name=".P20IntentSendBack" />
+        <activity android:name=".P20IntentGetBack" />
+        <activity android:name=".P19Intent2" />
+        <activity android:name=".P19Intent1" />
+        <activity android:name=".P18AppLocalization" />
+        <activity android:name=".P17ConstraintLayout" />
+        <activity android:name=".P16Form2" />
+        <activity android:name=".P15Snackbar" />
+        <activity android:name=".P14HwChangeListViewContent"/>
+        <activity android:name=".P13HwGridLayout_Numbers" />
+        <activity android:name=".P12GridLayout_Images" />
+        <activity android:name=".P11GridLayout_Calculator" />
+        <activity android:name=".P10Spinner"></activity>
+        <activity android:name=".P9ListView"></activity>
+        <activity android:name=".P8HwCounter" />
+        <activity android:name=".P7RadioAndCheckbox_QuickSurvey" />
+        <activity android:name=".P6HwSignupForm" />
+        <activity android:name=".P5RelativeLayout" />
+        <activity android:name=".P4HwForm1" />
+        <activity android:name=".P3ClickEvent2" />
+        <activity android:name=".P2ClickEvent1" />
+        <activity android:name=".P1LifeCycle"></activity>
+        <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
