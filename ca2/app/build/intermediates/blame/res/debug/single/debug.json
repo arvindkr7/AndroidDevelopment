@@ -1,0 +1,190 @@
+[
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\font_quicksand_bold.otf.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\font\\quicksand_bold.otf"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_camera_alt_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_camera_alt_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_live_help_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_live_help_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_person_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_person_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_check_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_check_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\font_quicksand_regular.otf.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\font\\quicksand_regular.otf"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_capture_button.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\bg_capture_button.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_email_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_email_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_checked_success.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_checked_success.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_lock_icon.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\custom_lock_icon.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_email_focused.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_email_focused.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_account_circle_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_account_circle_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_signin.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\layout\\activity_signin.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_arrow_back_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_back_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_arrow_forward_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_forward_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bgcard.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\bgcard.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_language_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_language_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_lock_focused.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_lock_focused.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\font_quicksand_light.otf.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\font\\quicksand_light.otf"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_backbutton.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\bg_backbutton.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_exit_to_app_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_exit_to_app_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_image_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_image_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_lock_24.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_lock_24.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_email_icon.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\custom_email_icon.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_browse_button.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\bg_browse_button.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_person_icon.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\custom_person_icon.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_edittext.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\bg_edittext.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register_status.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\layout\\activity_register_status.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_welcome.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\layout\\activity_welcome.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_input.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\custom_input.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_person_focused.xml.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\ic_baseline_person_focused.xml"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\drawable\\bg.png"
+    },
+    {
+        "merged": "E:\\GitHubDesktop\\cse224\\ca2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\GitHubDesktop\\cse224\\ca2\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    }
+]

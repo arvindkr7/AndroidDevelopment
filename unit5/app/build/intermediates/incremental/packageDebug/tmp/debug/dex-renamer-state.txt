@@ -1,0 +1,7 @@
+#Mon Oct 19 12:45:19 IST 2020
+base.1=E\:\\GitHubDesktop\\cse224\\unit5\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
+path.1=classes.dex
+base.0=E\:\\GitHubDesktop\\cse224\\unit5\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex
