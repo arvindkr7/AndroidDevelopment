@@ -6,13 +6,16 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f301a593-ac3d-45bb-9c3e-afabc66e4ad0" name="Default Changelist" comment="" />
+    <list default="true" id="f301a593-ac3d-45bb-9c3e-afabc66e4ad0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../cse225/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cse225/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="6e1297510305" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_API_R" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
