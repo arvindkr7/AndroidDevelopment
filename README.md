@@ -1,2 +1,3 @@
-# cse224
- cse 224  android studio learning
+# For CSE 225 Practicals
+> go to 
+> CSE225Practicals
