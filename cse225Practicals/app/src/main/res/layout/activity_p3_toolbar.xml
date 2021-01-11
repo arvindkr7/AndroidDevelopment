@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".P3Toolbar">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ED862C"
+        app:logo="@drawable/ic_baseline_text_format_24"
+        app:title="ToolBar"
+        app:titleTextColor="#FFEB3B"
+        app:subtitle="It will be for all activities"
+        app:subtitleTextColor="#48d1cf"
+        />
+
+</LinearLayout>
