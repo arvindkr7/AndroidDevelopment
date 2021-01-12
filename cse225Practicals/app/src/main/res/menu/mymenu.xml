@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:title="setting">Setting</item>
-    <item android:title="search">Search</item>
-    <item android:title="notification">Notification</item>
-    <item android:title="account">Account</item>
+    <item android:title="setting"
+        app:showAsAction="collapseActionView"
+        >Setting</item>
+    <item android:title="search"
+        android:id="@+id/search_bar"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always"
+        >Search</item>
+    <item android:title="notification"
+        android:icon="@drawable/ic_baseline_notifications_active_24"
+        app:showAsAction="ifRoom"
+        >Notification</item>
+    <item android:title="account"
+        app:showAsAction="ifRoom"
+        >Account</item>
 
 </menu>

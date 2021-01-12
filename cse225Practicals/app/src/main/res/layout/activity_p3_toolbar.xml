@@ -4,17 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".P3Toolbar">
+    android:fitsSystemWindows="true"
+    tools:context=".P3Toolbar"
+    android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ED862C"
         app:logo="@drawable/ic_baseline_text_format_24"
-        app:title="ToolBar"
-        app:titleTextColor="#FFEB3B"
-        app:subtitle="It will be for all activities"
-        app:subtitleTextColor="#48d1cf"
-        />
+        app:title="Arvind Kumar"
+        app:subtitle="grow for good"
+        app:titleTextColor="#b6500f"
+        android:background="#48d1cc"></androidx.appcompat.widget.Toolbar>
+
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_baseline_text_format_24"
+      android:layout_gravity="center_vertical"
+      >
+
+  </ImageView>
+    <ListView
+        android:id="@+id/lv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
 
 </LinearLayout>
