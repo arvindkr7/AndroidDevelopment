@@ -7,6 +7,9 @@
     android:fitsSystemWindows="true"
     tools:context=".P3Toolbar"
     android:orientation="vertical">
+
+
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb1"
         android:layout_width="match_parent"
@@ -23,12 +26,13 @@
       android:layout_height="wrap_content"
       android:src="@drawable/ic_baseline_text_format_24"
       android:layout_gravity="center_vertical"
+      android:contentDescription="Company Logo"
       >
 
   </ImageView>
     <ListView
         android:id="@+id/lv1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
