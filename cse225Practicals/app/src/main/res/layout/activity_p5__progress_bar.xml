@@ -8,9 +8,20 @@
 
     <!-- by default is cyclic and indeterminate is true that means non-numeric (infinite)-->
     <ProgressBar
+        android:id="@+id/pb1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:indeterminate="false"
+        android:progress="50"
+        android:max="100"
+    />
+    <ProgressBar
+        android:id="@+id/pb2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-    />
+        android:layout_gravity="center_horizontal"
+        />
 
 </LinearLayout>
