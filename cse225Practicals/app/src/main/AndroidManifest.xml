@@ -9,17 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".p4_star_RatingBar"></activity>
+        <activity android:name=".NotificationDemo"></activity>
+        <activity android:name=".NotificationLandingPage" />
+        <activity android:name=".P11CustomToastLayout" />
+        <activity android:name=".p5_ProgressBar" />
+
+        <activity android:name=".P11CustomToast" />
+
+
+        <activity android:name=".p4_star_RatingBar" />
         <activity android:name=".P3Toolbar" />
         <activity android:name=".MainActivity" />
         <activity android:name=".p2HorizontalScrollView" />
-        <activity android:name=".p5_ProgressBar">
+        <activity android:name=".P10DemoAlarm">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".AlarmBroadCastReceiver"/>
     </application>
 
 </manifest>
