@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".P10DemoAlarm"></activity>
+        <activity android:name=".DateTimePickerThroughxml"></activity>
+        <activity android:name=".P10DemoAlarm" />
         <activity android:name=".NotificationDemo" />
         <activity android:name=".NotificationLandingPage" />
         <activity android:name=".P11CustomToastLayout" />
