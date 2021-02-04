@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class HomePage extends AppCompatActivity {
-        Button alarm, notification, datepicker;
+        Button alarm, notification, datepicker, timepicker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +16,7 @@ public class HomePage extends AppCompatActivity {
         alarm = findViewById(R.id.btn_goto_Alarm);
         notification = findViewById(R.id.btn_goto_Notification);
         datepicker = findViewById(R.id.btn_goto_DatePicker);
-
+        timepicker = findViewById(R.id.btn_goto_TimePicker);
         // implement on click methods
 
         alarm.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +40,14 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomePage.this, DateTimePickerThroughxml.class);
                 startActivity(intent);
+            }
+        });
+
+        timepicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HomePage.this, DemoTimePicker.class);
+                startActivity(i);
             }
         });
     }
