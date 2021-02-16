@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DemoTimePicker"></activity>
+        <activity android:name=".P12Header"></activity>
+        <activity android:name=".P12Footer" />
+        <activity android:name=".DemoTimePicker" />
         <activity android:name=".DateTimePickerThroughxml" />
         <activity android:name=".P10DemoAlarm" />
         <activity android:name=".NotificationDemo" />
@@ -19,9 +21,9 @@
         <activity android:name=".P11CustomToast" />
         <activity android:name=".p4_star_RatingBar" />
         <activity android:name=".P3Toolbar" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".HomePage" />
         <activity android:name=".p2HorizontalScrollView" />
-        <activity android:name=".HomePage">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
