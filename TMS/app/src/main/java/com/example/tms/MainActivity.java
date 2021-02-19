@@ -1,63 +1,65 @@
 package com.example.tms;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Toolbar toolbar;
-    EditText edtSubjectName;
-    Button btnAddSubject;
-    ListView lvSubjects;
-    ArrayList<String> alSubjects;
+    ListView listView;
+    Toolbar  toolbar;
+    ArrayAdapter arrayAdapter;
+    ArrayList <String> arrayList = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = findViewById(R.id.myToolbar);
+        listView = findViewById(R.id.lv1);
+        toolbar = findViewById(R.id.mainToolbar);
         setSupportActionBar(toolbar);
-        edtSubjectName = findViewById(R.id.edt_add_subject);
-        btnAddSubject = findViewById(R.id.btn_add_subject);
-        lvSubjects = findViewById(R.id.lst_view_subjects);
-        alSubjects = new ArrayList<>();
+
+        arrayList.add("Physics");
+        arrayList.add("Chemistry");
+        arrayList.add("Maths");
+        for (int i=0; i<10; i++){
+            arrayList.add("Item "+i);
+        }
+
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
+        listView.setAdapter(arrayAdapter);
+
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbarmenu, menu);
-        return true;
+        inflater.inflate(R.menu.mainmenu, menu);
+        MenuItem mSearch = menu.findItem(R.id.menu_search);
+        SearchView mSearchView = (SearchView)mSearch.getActionView();
+        mSearchView.setQueryHint("Search your schedule");
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                arrayAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+
+
+        return super.onCreateOptionsMenu(menu);
     }
-
-    public void addSubject(View view) {
-        String text = edtSubjectName.getText().toString();
-
-        if (!text.isEmpty()){
-            alSubjects.add(text);
-            ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, alSubjects);
-            lvSubjects.setAdapter(adapter);
-
-            edtSubjectName.setText("");
-        }
-        else{
-            Toast.makeText(this,"MUST PROVIDE SUBJECT NAME", Toast.LENGTH_LONG).show();
-        }
-
-        }
-
-
-    }
+}

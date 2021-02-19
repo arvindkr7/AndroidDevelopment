@@ -7,33 +7,19 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     >
-    <include android:layout ="@layout/header"
-        android:id="@+id/myToolbar"/>
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mainToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:id="@+id/edt_add_subject"
-            android:layout_width="0dp"
-            android:layout_weight="4"
-            android:layout_height="wrap_content"
-            android:hint="Add a Subject"/>
-        <Button
-            android:id="@+id/btn_add_subject"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Add"
-            android:layout_gravity="right"
-            android:onClick="addSubject"
-            />
-    </LinearLayout>
-    <ListView
-        android:id="@+id/lst_view_subjects"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         />
 
+    <ListView
+        android:id="@+id/lv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
 </LinearLayout>
