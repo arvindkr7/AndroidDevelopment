@@ -8,6 +8,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -46,13 +47,35 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         lvCustom = findViewById(R.id.lv_custom);
-        myTasks = new MyTasks();
+        myTasks = ((MyApplication)this.getApplication()).getMyTasks();
 
         taskAdapter = new TaskAdapter(MainActivity.this, myTasks);
 
         lvCustom.setAdapter(taskAdapter);
+        // listen for incoming message thru intent
+        Bundle b= getIntent().getExtras();
+        //capture and store incoming data
+        if (b!=null) {
+            String name = b.getString("name");
+            String time = b.getString("time");
+            String day = b.getString("day");
+            String date = b.getString("date");
 
 
+
+
+
+            // create new TaskModel object with received data
+
+            TaskModel t = new TaskModel(name, time, day, date);
+//add new task to list
+            myTasks.getMyTasksList().add(t);
+
+
+
+            // notify the adapter
+            taskAdapter.notifyDataSetChanged();
+        }
         alSchedules.add("19/02/2021 09:00 AM");
         alSchedules.add("19/02/2021 10:00 AM");
 
@@ -166,7 +189,9 @@ public class MainActivity extends AppCompatActivity {
                 msg="Search";
                 break;
             case R.id.menu_addSchedule:
-                msg ="add scedule";
+                msg ="add Schedule";
+                Intent intent = new Intent(MainActivity.this, NewTaskForm.class);
+                startActivity(intent);
                 break;
             case R.id.menu_mySubjects:
                 msg="my subjects";

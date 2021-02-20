@@ -10,19 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Subject Name"
+        android:textColor="@color/purple_500"
         />
+    <EditText
+        android:id="@+id/et_addNewTaskTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Time"/>
 
-    <DatePicker
-        android:id="@+id/dp_addNewTaskDate"
+
+    <EditText
+        android:id="@+id/et_addNewTaskDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:datePickerMode="calendar"
+        android:hint="Day"
         />
-    <TimePicker
-        android:id="@+id/tp_addNewTaskTime"
+    <EditText
+        android:id="@+id/et_addNewTasDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:timePickerMode="spinner"/>
+        android:hint="Date"
+        />
 
 
 </LinearLayout>
