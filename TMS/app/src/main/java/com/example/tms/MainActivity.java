@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -23,10 +24,15 @@ import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
-    ListView lvSchedules, lvSubjects;
+    ListView lvSchedules, lvSubjects, lvCustom;
     Toolbar  toolbar;
+
+    TaskAdapter taskAdapter;
+    MyTasks myTasks;
+
     ArrayAdapter adapterSchedules, adapterSubjects;
     ArrayList <String> alSchedules = new ArrayList<String>();
     ArrayList<String> alSubjects = new ArrayList<>();
@@ -38,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
         lvSubjects = findViewById(R.id.lv_Subjects);
         toolbar = findViewById(R.id.mainToolbar);
         setSupportActionBar(toolbar);
+
+        lvCustom = findViewById(R.id.lv_custom);
+        myTasks = new MyTasks();
+
+        taskAdapter = new TaskAdapter(MainActivity.this, myTasks);
+
+        lvCustom.setAdapter(taskAdapter);
+
 
         alSchedules.add("19/02/2021 09:00 AM");
         alSchedules.add("19/02/2021 10:00 AM");
@@ -68,8 +82,19 @@ public class MainActivity extends AppCompatActivity {
         };
         lvSubjects.setAdapter(adapterSubjects);
 
+        lvSubjects.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Toast.makeText(MainActivity.this, "position="+i+" item="+ alSubjects.get(i), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
                 String subjectName = subject.getText().toString();
                 if (!subjectName.isEmpty()) {
                     alSubjects.add(subjectName);
+                    Collections.sort(alSubjects); // sorting list
+                    adapterSubjects.notifyDataSetChanged(); // notify adapter that changes has occured
                     Toast.makeText(MainActivity.this, "new Subject added above " + subjectName, Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(MainActivity.this, "Must provide a subject name", Toast.LENGTH_SHORT).show();
@@ -127,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
         mydialog.show();
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
