@@ -54,7 +54,7 @@ public class NewTaskForm extends AppCompatActivity {
 
 
 
-        cancel.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -68,7 +68,7 @@ public class NewTaskForm extends AppCompatActivity {
                 goback();
             }
         });
-        submit.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goback();

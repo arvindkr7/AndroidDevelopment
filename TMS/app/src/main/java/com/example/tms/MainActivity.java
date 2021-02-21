@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     TaskAdapter taskAdapter;
     MyTasks myTasks;
 
+    TaskModel tempTask;
+
     ArrayAdapter adapterSchedules, adapterSubjects;
     ArrayList <String> alSchedules = new ArrayList<>();
     ArrayList<String> alSubjects = new ArrayList<>();
@@ -64,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
             String day = b.getString("day");
             String date = b.getString("date");
 
-            Toast.makeText(this, "position in main activity "+position, Toast.LENGTH_SHORT).show();
             // check if object existing then updated else add new object
             if (position!= -1){
                 TaskModel t2= myTasks.getMyTasksList().get(position);
@@ -80,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
                 // create new TaskModel object with received data
 
-                TaskModel t = new TaskModel(name, time, day, date);
+                tempTask = new TaskModel(name, time, day, date);
                 //add new task to list
-                myTasks.getMyTasksList().add(t);
+                myTasks.getMyTasksList().add(tempTask);
             }
 
             // SORTING THE DATA
@@ -109,23 +110,7 @@ public class MainActivity extends AppCompatActivity {
         alSubjects.add("Chemistry");
         alSubjects.add("Maths");
 
-        adapterSubjects = new ArrayAdapter(this, android.R.layout.simple_list_item_1, alSubjects){
-
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                // get current item
-                View view = super.getView(position, convertView, parent);
-                if (position%2==0){
-                    view.setBackground(getResources().getDrawable(R.drawable.custom_listview_card));
-                }
-
-                else{
-                        view.setBackground(getResources().getDrawable(R.drawable.custom_listview_bottom_card));
-                }
-                return view;
-            }
-        };
+        adapterSubjects = new ArrayAdapter(this, android.R.layout.simple_list_item_1, alSubjects);
         lvSubjects.setAdapter(adapterSubjects);
 
         lvSubjects.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -172,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 adapterSubjects.getFilter().filter(newText);
+
                 return true;
             }
         });
@@ -179,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
+
+    
 
     public void addSubject(){
         Toast.makeText(this, "Custom Dialog alert will open", Toast.LENGTH_SHORT).show();

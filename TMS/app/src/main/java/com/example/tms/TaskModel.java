@@ -1,6 +1,6 @@
 package com.example.tms;
 
-public class TaskModel {
+public class TaskModel{
     private  String subName;
     private String taskTime;
     private String taskDay;
