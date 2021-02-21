@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     MyTasks myTasks;
 
     ArrayAdapter adapterSchedules, adapterSubjects;
-    ArrayList <String> alSchedules = new ArrayList<String>();
+    ArrayList <String> alSchedules = new ArrayList<>();
     ArrayList<String> alSubjects = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,33 +49,56 @@ public class MainActivity extends AppCompatActivity {
         lvCustom = findViewById(R.id.lv_custom);
         myTasks = ((MyApplication)this.getApplication()).getMyTasks();
 
+
+
         taskAdapter = new TaskAdapter(MainActivity.this, myTasks);
 
         lvCustom.setAdapter(taskAdapter);
-        // listen for incoming message thru intent
+        // listen for incoming message through intent
         Bundle b= getIntent().getExtras();
         //capture and store incoming data
         if (b!=null) {
+            int position = b.getInt("position");
             String name = b.getString("name");
             String time = b.getString("time");
             String day = b.getString("day");
             String date = b.getString("date");
 
+            Toast.makeText(this, "position in main activity "+position, Toast.LENGTH_SHORT).show();
+            // check if object existing then updated else add new object
+            if (position!= -1){
+                TaskModel t2= myTasks.getMyTasksList().get(position);
+
+                t2.setSubName(name);
+                t2.setTaskTime(time);
+                t2.setTaskDay(day);
+                t2.setTaskDate(date);
+            }
+
+            else {
 
 
+                // create new TaskModel object with received data
 
+                TaskModel t = new TaskModel(name, time, day, date);
+                //add new task to list
+                myTasks.getMyTasksList().add(t);
+            }
 
-            // create new TaskModel object with received data
-
-            TaskModel t = new TaskModel(name, time, day, date);
-//add new task to list
-            myTasks.getMyTasksList().add(t);
-
+            // SORTING THE DATA
 
 
             // notify the adapter
             taskAdapter.notifyDataSetChanged();
         }
+
+        lvCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                editTask(i);
+            }
+        });
+
         alSchedules.add("19/02/2021 09:00 AM");
         alSchedules.add("19/02/2021 10:00 AM");
 
@@ -116,6 +139,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void editTask(int position){
+        Intent i = new Intent(getApplicationContext(), NewTaskForm.class);
+
+        // get the contents of the task at position
+        TaskModel t = myTasks.getMyTasksList().get(position);
+        i.putExtra("position", position);
+        i.putExtra("name", t.getSubName());
+        i.putExtra("time", t.getTaskTime());
+        i.putExtra("day", t.getTaskDay());
+        i.putExtra("date", t.getTaskDate());
+
+        startActivity(i);
     }
 
 
@@ -191,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_addSchedule:
                 msg ="add Schedule";
                 Intent intent = new Intent(MainActivity.this, NewTaskForm.class);
+                intent.putExtra("position", -1);
                 startActivity(intent);
                 break;
             case R.id.menu_mySubjects:

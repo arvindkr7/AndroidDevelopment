@@ -4,7 +4,7 @@ import android.app.Application;
 
 public class MyApplication extends Application {
 
-    private  MyTasks myTasks;
+    private  MyTasks myTasks= new MyTasks();
 
     public MyTasks getMyTasks() {
         return myTasks;
