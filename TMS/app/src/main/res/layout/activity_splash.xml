@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_round_more_time"
+            android:src="@drawable/ic_round_library_add_check_24"
             android:layout_centerInParent="true"
             android:layout_gravity="center_horizontal"
             />
@@ -28,6 +28,7 @@
             android:text="TMS"
             android:textSize="30sp"
             android:textColor="@color/white"
+            android:layout_gravity="center"
             />
     </LinearLayout>
 
