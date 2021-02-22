@@ -8,6 +8,7 @@
     android:orientation="vertical"
 
     android:layout_margin="10dp"
+    android:gravity="center_vertical"
     >
 
     <TextView
@@ -19,7 +20,7 @@
         android:drawableStart="@drawable/ic_round_date_range_24"
         android:drawableEnd="@drawable/ic_round_keyboard_arrow_down_24"
         android:drawablePadding="10dp"
-        android:background="@drawable/custom_listview_outlined_card"
+        android:background="@drawable/custom_listview_card"
         android:padding="15dp"
 
         android:layout_marginTop="20dp"
@@ -30,14 +31,14 @@
         android:id="@+id/tpdemo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Select Date"
+        android:hint="Select Time"
         android:textAllCaps="true"
         android:drawableStart="@drawable/ic_baseline_access_time_24"
         android:drawableEnd="@drawable/ic_round_keyboard_arrow_down_24"
         android:drawablePadding="10dp"
-        android:background="@drawable/custom_listview_outlined_card"
+        android:background="@drawable/custom_listview_bottom_card"
         android:padding="15dp"
-        android:layout_marginVertical="20dp"
+        android:layout_marginVertical="5dp"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -52,6 +53,39 @@
         android:padding="15dp"
         android:drawablePadding="10dp"
         android:drawableStart="@drawable/ic_round_access_alarm_24"
+        android:drawableEnd="@drawable/ic_round_check_circle_24"
         />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        >
+        <Button
+            android:id="@+id/btn_task_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:background="@drawable/custom_cancel_button"
+
+            />
+        <Button
+            android:id="@+id/btn_okay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Okay"
+            android:background="@drawable/custom_okay_button"
+
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send notification"
+        android:onClick="sendNotification"/>
+
 
 </LinearLayout>
