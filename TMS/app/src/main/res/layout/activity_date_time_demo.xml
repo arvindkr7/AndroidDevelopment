@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DateTimeDemo"
+    android:orientation="vertical"
+
+    android:layout_margin="10dp"
+    >
+
+    <TextView
+        android:id="@+id/dpdemo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Date"
+        android:textAllCaps="true"
+        android:drawableStart="@drawable/ic_round_date_range_24"
+        android:drawableEnd="@drawable/ic_round_keyboard_arrow_down_24"
+        android:drawablePadding="10dp"
+        android:background="@drawable/custom_listview_outlined_card"
+        android:padding="15dp"
+
+        android:layout_marginTop="20dp"
+
+        />
+
+    <TextView
+        android:id="@+id/tpdemo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Date"
+        android:textAllCaps="true"
+        android:drawableStart="@drawable/ic_baseline_access_time_24"
+        android:drawableEnd="@drawable/ic_round_keyboard_arrow_down_24"
+        android:drawablePadding="10dp"
+        android:background="@drawable/custom_listview_outlined_card"
+        android:padding="15dp"
+        android:layout_marginVertical="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task scheduled for"/>
+    <TextView
+        android:id="@+id/tv_dateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Final Output"
+        android:background="@drawable/custom_listview_outlined_card"
+        android:padding="15dp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_round_access_alarm_24"
+        />
+
+</LinearLayout>

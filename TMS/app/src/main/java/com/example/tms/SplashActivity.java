@@ -19,8 +19,9 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 Intent intent=new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
-               // finish();
+                finish(); // closes the splash activity after start of app else it will be running in back
+
             }
-        },5000);
+        },2000);
     }
 }
