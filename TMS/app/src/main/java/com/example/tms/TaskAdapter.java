@@ -7,42 +7,51 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
-public class TaskAdapter extends BaseAdapter {
+public class TaskAdapter extends BaseAdapter implements Filterable {
 
     Activity myActivity;
     MyTasks myTasks;
-
+    List<TaskModel> filteredTasks;
+    List<TaskModel> allTasks;
 
 
 
     public TaskAdapter(Activity myActivity, MyTasks myTasks) {
         this.myActivity = myActivity;
         this.myTasks = myTasks;
+        this.filteredTasks = myTasks.getMyTasksList();
+        this.allTasks = myTasks.getMyTasksList();
+
     }
 
     @Override
     public int getCount() {
         // no. of elements in task list
-        return myTasks.getMyTasksList().size();
+        return filteredTasks.size();
     }
 
     @Override
     public TaskModel getItem(int i) {
         // might need to change the return type to TaskModel
         // get item at index i when clicking
-        return myTasks.getMyTasksList().get(i);
+        return filteredTasks.get(i);
     }
 
     @Override
     public long getItemId(int i) {
         // optional method
-
+        // generally returns null
         return 0;
     }
+
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
@@ -72,14 +81,47 @@ public class TaskAdapter extends BaseAdapter {
         int mint = t.getMint();
 
         Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, month);
-        c.set(Calendar.DAY_OF_MONTH, date);
-        c.set(Calendar.HOUR, hr);
-        c.set(Calendar.MINUTE, mint);
+
+        c.set( year, month, date, hr, mint,0);
 
         CharSequence dateTime = DateFormat.format("hh:mm a - E dd MMM", c);
         return dateTime;
 
+    }
+
+    @Override
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                FilterResults results = new FilterResults();
+
+                if (charSequence == null){
+                    results.count = allTasks.size();
+                    results.values = allTasks;
+
+                }else {
+                    String searchQuery = charSequence.toString().toLowerCase();
+                    List<TaskModel> searchResult = new ArrayList<>();
+                    for (TaskModel t: allTasks){
+                      if (t.getName().contains(searchQuery)) {
+                          searchResult.add(t);
+                      }
+                      results.count = searchResult.size();
+                      results.values = searchResult;
+                    }
+                }
+
+
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults results) {
+                    filteredTasks = (List<TaskModel>) results.values;
+                    notifyDataSetChanged();
+            }
+        };
+        return  filter;
     }
 }

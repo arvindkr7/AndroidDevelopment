@@ -11,8 +11,8 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 
 public class NotificationHelper extends ContextWrapper {
-    public static final String channelID="channelID";
-    public static final String channelName = "Channel 1";
+    public static final String channelID="channelID2";
+    public static final String channelName = "Channel 2";
 
     private  NotificationManager nManager;
     public NotificationHelper(Context base) {
@@ -41,10 +41,10 @@ public class NotificationHelper extends ContextWrapper {
     }
 
 
-    public NotificationCompat.Builder getChannelNotification(String title, CharSequence msg){
+    public NotificationCompat.Builder getChannelNotification(String title, CharSequence desc){
         return new NotificationCompat.Builder(getApplicationContext(), channelID)
                 .setContentTitle(title)
-                .setContentText(msg)
+                .setContentText(desc)
                 .setSmallIcon(R.drawable.ic_round_library_add_check_24);
 
 

@@ -9,6 +9,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -52,10 +53,10 @@ public class DateTimeDemo extends AppCompatActivity {
         tv_output.setVisibility(View.INVISIBLE);
         okay = findViewById(R.id.btn_okay);
         cancel = findViewById(R.id.btn_task_cancel);
-        receivedCalendar.set(Calendar.AM_PM,0);
+        //receivedCalendar.set(Calendar.AM_PM,0);
         receivedCalendar.set(Calendar.SECOND,0);
         currtime =DateFormat.format("hh:mm a",current);
-
+        //updatedCalendar.set(Calendar.AM,0);
         //displayDate();
         //displayTime();
 
@@ -132,7 +133,7 @@ public class DateTimeDemo extends AppCompatActivity {
 
                         displayTime(updatedCalendar);
 
-
+                        displayDateTime(updatedCalendar);
                     }
                 }, hr, mint, is24hr);
 
@@ -218,11 +219,7 @@ public class DateTimeDemo extends AppCompatActivity {
 
     public void onreceiving(Calendar c){
 
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, month);
-        c.set(Calendar.DAY_OF_MONTH, day);
-        c.set(Calendar.HOUR, hr);
-        c.set(Calendar.MINUTE, mint);
+        c.set(year, month, day, hr, mint, 0);
 
         displayTaskName();
         displayDate(c);
@@ -252,31 +249,35 @@ public class DateTimeDemo extends AppCompatActivity {
             i.putExtra("hr", c.get(Calendar.HOUR));
             i.putExtra("mint", c.get(Calendar.MINUTE));
 
-
-            setAlarm();
+            finalCharSeq = DateFormat.format("hh:mm a - E dd MMM", c);
+            setAlarm(updatedCalendar.getTimeInMillis());
         }
         startActivity(i);
     }
 
 
 
-    public void setAlarm(){
+    public void setAlarm(long timeinMillis){
 
-        if (verify()) {
 
             Intent i = new Intent(DateTimeDemo.this, ReminderBroadcastReceiver.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(DateTimeDemo.this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+            i.putExtra("title", name);
+            i.putExtra("desc", finalCharSeq);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(DateTimeDemo.this, 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-            long timeinMillis = updatedCalendar.getTimeInMillis();
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
-            updateTimeText();
-            toastMsg("Reminder set for "+timeText);
+
+
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeinMillis, pendingIntent);
+        updateTimeText();
+            toastMsg("Reminder set for "+timeText);
+            toastMsg("will ring in "+(timeinMillis/1000)+" sec");
+
 
 
             //sendNotification();
-        }
+
 
 
 
@@ -285,7 +286,7 @@ public class DateTimeDemo extends AppCompatActivity {
 
     public void cancelAlarm(){
         Intent i = new Intent(DateTimeDemo.this, ReminderBroadcastReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(DateTimeDemo.this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(DateTimeDemo.this, 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.cancel(pendingIntent);

@@ -28,6 +28,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ListView lvSubjects, lvCustom;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton btnaddtask;
     TaskAdapter taskAdapter;
     MyTasks myTasks;
-
+    List<TaskModel> filteredTasks;
     TaskModel tempTask;
 
     ArrayAdapter adapterSchedules, adapterSubjects;
@@ -53,8 +54,12 @@ public class MainActivity extends AppCompatActivity {
         btnaddtask = findViewById(R.id.btn_addNewTask);
 
 
+
         lvCustom = findViewById(R.id.lv_custom);
         myTasks = ((MyApplication)this.getApplication()).getMyTasks();
+
+        filteredTasks = myTasks.getMyTasksList();
+
 
 
 
@@ -166,14 +171,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapterSubjects.getFilter().filter(newText);
+                //adapterSubjects.getFilter().filter(newText);
+                taskAdapter.getFilter().filter(newText);
+
+
 
                 return true;
             }
         });
 
 
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     
