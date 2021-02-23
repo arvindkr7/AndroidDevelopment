@@ -25,11 +25,14 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class DateTimeDemo extends AppCompatActivity {
+    MainActivity mainActivity;
+    MyTasks myTasks;
     TextView dp, tp, tv_output;
     EditText et;
-    Button okay, cancel;
+    Button okay, cancel, delete;
     int year, month, day, hr, mint;
     boolean is24hr = false;
     CharSequence time, currtime, date, finalCharSeq;
@@ -53,12 +56,15 @@ public class DateTimeDemo extends AppCompatActivity {
         tv_output.setVisibility(View.INVISIBLE);
         okay = findViewById(R.id.btn_okay);
         cancel = findViewById(R.id.btn_task_cancel);
+        delete = findViewById(R.id.btn_deleteTask);
         //receivedCalendar.set(Calendar.AM_PM,0);
         receivedCalendar.set(Calendar.SECOND,0);
         currtime =DateFormat.format("hh:mm a",current);
         //updatedCalendar.set(Calendar.AM,0);
         //displayDate();
         //displayTime();
+
+        myTasks = ((MyApplication)this.getApplication()).getMyTasks();
 
         // Calendar instance gives the current day and time
 
@@ -150,7 +156,7 @@ public class DateTimeDemo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                cancel(receivedCalendar);
+                cancel();
                 //cancelAlarm();
                 toastMsg("Cancelled!");
             }
@@ -163,6 +169,13 @@ public class DateTimeDemo extends AppCompatActivity {
                 //setAlarm();
                 save(updatedCalendar);
 
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteTask();
             }
         });
 
@@ -203,9 +216,6 @@ public class DateTimeDemo extends AppCompatActivity {
     }
 
     public void displayDate(Calendar c){
-
-
-
         date = DateFormat.format("E dd MMM", c);
         dp.setText(date);
     }
@@ -230,7 +240,7 @@ public class DateTimeDemo extends AppCompatActivity {
 
     }
 
-    public void cancel(Calendar c){
+    public void cancel(){
         Intent i = new Intent(DateTimeDemo.this, MainActivity.class);
         startActivity(i);
     }
@@ -253,6 +263,21 @@ public class DateTimeDemo extends AppCompatActivity {
             setAlarm(updatedCalendar.getTimeInMillis());
         }
         startActivity(i);
+    }
+
+    public void deleteTask(){
+        if (position!= -1){
+            toastMsg("Task deleted!");
+            myTasks.getMyTasksList().remove(position);
+            cancel(); // go back to previous activity (Main)
+
+
+
+        }
+        else{
+            toastMsg("Task doesn't exist yet!");
+        }
+
     }
 
 

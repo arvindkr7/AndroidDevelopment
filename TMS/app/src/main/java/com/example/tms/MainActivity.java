@@ -39,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
     List<TaskModel> filteredTasks;
     TaskModel tempTask;
 
+    public TaskAdapter getTaskAdapter() {
+        return taskAdapter;
+    }
+
+    public void setTaskAdapter(TaskAdapter taskAdapter) {
+        this.taskAdapter = taskAdapter;
+    }
+
     ArrayAdapter adapterSchedules, adapterSubjects;
 
     ArrayList<String> alSubjects = new ArrayList<>();

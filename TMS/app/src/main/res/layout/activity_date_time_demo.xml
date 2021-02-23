@@ -82,10 +82,18 @@
 
             />
         <Button
+            android:id="@+id/btn_deleteTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/custom_cancel_button"
+            />
+        <Button
             android:id="@+id/btn_okay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Okay"
+            android:text="save"
             android:background="@drawable/custom_okay_button"
 
             android:layout_alignParentRight="true"
