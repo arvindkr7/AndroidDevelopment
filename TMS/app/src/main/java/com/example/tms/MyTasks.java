@@ -1,6 +1,7 @@
 package com.example.tms;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MyTasks {
@@ -9,13 +10,16 @@ public class MyTasks {
         this.myTasksList = myTasksList;
     }
     public MyTasks(){
-        String[] subNames={"Physics", "Chemistry", "Maths"};
-        String[] taskTimes={"09:00", "10:00", "11:00"};
-        String[] taskDays ={"Sat", "Sat", "Sat"};
-        String[] taskDates ={"20 Feb", "21 Feb", "22 Feb"};
+        String[] taskNames= {"Physics", "Chemistry"};
+        int[] year={2021, 2021};
+        int[] month={1,2};
+        int[] date={22,23};
+        int[] hr ={9,10};
+        int[] mint={15, 25};
+
         this.myTasksList = new ArrayList<>();
-        for (int i=0; i<subNames.length; i++){
-            TaskModel t= new TaskModel(subNames[i], taskTimes[i], taskDays[i], taskDates[i]);
+        for (int i=0; i<taskNames.length; i++){
+            TaskModel t= new TaskModel(taskNames[i], year[i],month[i], date[i], hr[i], mint[i] );
             myTasksList.add(t);
         }
     }

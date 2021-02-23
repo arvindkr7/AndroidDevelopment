@@ -2,16 +2,22 @@ package com.example.tms;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 public class TaskAdapter extends BaseAdapter {
 
     Activity myActivity;
     MyTasks myTasks;
+
+
+
 
     public TaskAdapter(Activity myActivity, MyTasks myTasks) {
         this.myActivity = myActivity;
@@ -46,18 +52,34 @@ public class TaskAdapter extends BaseAdapter {
 
         SingleTask = inflater.inflate(R.layout.singletask, viewGroup, false);
 
-        TextView tvSubName =SingleTask.findViewById(R.id.tv_singleTaskSubjectName);
-        TextView tvTaskTime= SingleTask.findViewById(R.id.tv_singleTaskTime);
-        TextView tvTaskDay = SingleTask.findViewById(R.id.tv_singleTaskDayName);
-        TextView tvTaskDate = SingleTask.findViewById(R.id.tv_singleTaskDate);
+        TextView tvTaskName =SingleTask.findViewById(R.id.tv_singleTaskName);
+        TextView tvTaskDateTime= SingleTask.findViewById(R.id.tv_singleTaskDateTime);
 
         TaskModel t = (TaskModel)this.getItem(i);
 
-        tvSubName.setText(t.getSubName());
-        tvTaskTime.setText(t.getTaskTime());
-        tvTaskDay.setText(t.getTaskDay());
-        tvTaskDate.setText(t.getTaskDate());
+        tvTaskName.setText(t.getName());
+        tvTaskDateTime.setText(getDateTime(t));
+
 
         return SingleTask;
+    }
+
+    public CharSequence getDateTime(TaskModel t){
+        int year = t.getYear();
+        int month = t.getMonth();
+        int date = t.getDate();
+        int hr = t.getHr();
+        int mint = t.getMint();
+
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, date);
+        c.set(Calendar.HOUR, hr);
+        c.set(Calendar.MINUTE, mint);
+
+        CharSequence dateTime = DateFormat.format("hh:mm a - E dd MMM", c);
+        return dateTime;
+
     }
 }

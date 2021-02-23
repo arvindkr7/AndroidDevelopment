@@ -17,7 +17,7 @@
         />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="650dp"
         android:orientation="vertical"
         android:layout_margin="5dp"
         >
@@ -25,17 +25,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Schedules"/>
+        android:text="Subjects"
 
-    <ListView
-        android:id="@+id/lv_Schedules"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Subjects"/>
+
+
     <ListView
         android:id="@+id/lv_Subjects"
         android:layout_width="match_parent"
@@ -43,13 +37,14 @@
         android:dividerHeight="5dp"
         android:divider="@color/white"
         android:padding="10dp"
-        
+
+
         />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Custom Array Adapter"
+            android:text="Schedules"
             />
         <ListView
             android:id="@+id/lv_custom"
@@ -60,10 +55,22 @@
 
             />
 </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+
 
     <ImageButton
         android:id="@+id/btn_addNewTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:src="@drawable/ic_round_add_circle_24"
+        android:background="@color/white"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+
+        /></RelativeLayout>>
 </LinearLayout>

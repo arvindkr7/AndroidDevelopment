@@ -27,14 +27,17 @@ import java.util.Date;
 
 public class DateTimeDemo extends AppCompatActivity {
     TextView dp, tp, tv_output;
+    EditText et;
     Button okay, cancel;
     int year, month, day, hr, mint;
     boolean is24hr = false;
     CharSequence time, currtime, date, finalCharSeq;
     String timeText;
-    String title="Physics";
-    Calendar calendar = Calendar.getInstance();
+    String name="Task name"; // for notification purpose
+    Calendar receivedCalendar = Calendar.getInstance();
     final Calendar current = Calendar.getInstance();
+    Calendar updatedCalendar = receivedCalendar;
+    int position = -1;
 
     private NotificationHelper notificationHelper;
     @Override
@@ -44,18 +47,34 @@ public class DateTimeDemo extends AppCompatActivity {
         notificationHelper = new NotificationHelper(DateTimeDemo.this);
         dp = findViewById(R.id.dpdemo);
         tp = findViewById(R.id.tpdemo);
+        et = findViewById(R.id.taskName);
         tv_output = findViewById(R.id.tv_dateTime);
         tv_output.setVisibility(View.INVISIBLE);
         okay = findViewById(R.id.btn_okay);
         cancel = findViewById(R.id.btn_task_cancel);
-        calendar.set(Calendar.AM_PM,0);
-        calendar.set(Calendar.SECOND,0);
+        receivedCalendar.set(Calendar.AM_PM,0);
+        receivedCalendar.set(Calendar.SECOND,0);
         currtime =DateFormat.format("hh:mm a",current);
 
         //displayDate();
         //displayTime();
 
         // Calendar instance gives the current day and time
+
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle!=null){
+
+            position = bundle.getInt("position");
+            name = bundle.getString("name");
+            year = bundle.getInt("year");
+            month = bundle.getInt("month");
+            day = bundle.getInt("date");
+            hr = bundle.getInt("hr");
+            mint = bundle.getInt("mint");
+            onreceiving(receivedCalendar);
+
+        }
 
 
 
@@ -77,12 +96,12 @@ public class DateTimeDemo extends AppCompatActivity {
                         month= i1;
                         day = i2;
                         // updated the latest information
-                        calendar.set(Calendar.YEAR, year);
-                        calendar.set(Calendar.MONTH, month);
-                        calendar.set(Calendar.DAY_OF_MONTH, day);
+                        updatedCalendar.set(Calendar.YEAR, year);
+                        updatedCalendar.set(Calendar.MONTH, month);
+                        updatedCalendar.set(Calendar.DAY_OF_MONTH, day);
 
-                        displayDate();
-                        displayDateTime();
+                        displayDate(updatedCalendar);
+                        displayDateTime(updatedCalendar);
 
                     }
 
@@ -107,11 +126,11 @@ public class DateTimeDemo extends AppCompatActivity {
                         hr = i;
                         mint = i1;
 
-                        calendar.set(Calendar.HOUR, hr);
-                        calendar.set(Calendar.MINUTE, mint);
+                        updatedCalendar.set(Calendar.HOUR, hr);
+                        updatedCalendar.set(Calendar.MINUTE, mint);
 
-                        if (verify()){
-                        displayTime();}
+
+                        displayTime(updatedCalendar);
 
 
                     }
@@ -129,7 +148,10 @@ public class DateTimeDemo extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cancelAlarm();
+
+                cancel(receivedCalendar);
+                //cancelAlarm();
+                toastMsg("Cancelled!");
             }
         });
 
@@ -137,7 +159,9 @@ public class DateTimeDemo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                setAlarm();
+                //setAlarm();
+                save(updatedCalendar);
+
             }
         });
 
@@ -146,13 +170,14 @@ public class DateTimeDemo extends AppCompatActivity {
 
     public boolean verify(){
 
-        if (calendar.before(current)){
+        if (updatedCalendar.before(current)){
             tv_output.setVisibility(View.INVISIBLE);
-            Toast.makeText(this, "Time must be ahead of "+currtime, Toast.LENGTH_SHORT).show();
+            String msg="Time must be ahead of "+currtime;
+            toastMsg(msg);
             return false;
         }
         else{
-            displayDateTime();
+            displayDateTime(updatedCalendar);
             tv_output.setVisibility(View.VISIBLE);
             return true;
         }
@@ -160,28 +185,77 @@ public class DateTimeDemo extends AppCompatActivity {
 
     }
 
+    public void displayTaskName(){
+        et.setText(name);
+    }
+
     private void updateTimeText(){
-        timeText = java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT).format(calendar.getTime());
+        timeText = java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT).format(updatedCalendar.getTime());
     }
 
-    public void displayDateTime(){
-        finalCharSeq = DateFormat.format("hh:mm a - E dd MMM", calendar);
+
+    public void displayDateTime(Calendar c){
+        finalCharSeq = DateFormat.format("hh:mm a - E dd MMM", c);
+
         tv_output.setText(finalCharSeq);
+        tv_output.setVisibility(View.VISIBLE);
     }
 
-    public void displayDate(){
+    public void displayDate(Calendar c){
 
 
 
-        date = DateFormat.format("E dd MMM", calendar);
+        date = DateFormat.format("E dd MMM", c);
         dp.setText(date);
     }
 
-    public void displayTime(){
+    public void displayTime(Calendar c){
 
-        time =DateFormat.format("hh:mm a",calendar);
+        time =DateFormat.format("hh:mm a",c);
         tp.setText(time);
 
+    }
+
+    public void onreceiving(Calendar c){
+
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, day);
+        c.set(Calendar.HOUR, hr);
+        c.set(Calendar.MINUTE, mint);
+
+        displayTaskName();
+        displayDate(c);
+        displayTime(c);
+        displayDateTime(c);
+
+
+
+    }
+
+    public void cancel(Calendar c){
+        Intent i = new Intent(DateTimeDemo.this, MainActivity.class);
+        startActivity(i);
+    }
+
+    public void save(Calendar c){
+        Intent i = new Intent(DateTimeDemo.this, MainActivity.class);
+        if (verify()) {
+
+            toastMsg("Saved successfully!");
+            name = et.getText().toString();
+            i.putExtra("position", position);
+            i.putExtra("name", name);
+            i.putExtra("year", c.get(Calendar.YEAR));
+            i.putExtra("month", c.get(Calendar.MONTH));
+            i.putExtra("date", c.get(Calendar.DAY_OF_MONTH));
+            i.putExtra("hr", c.get(Calendar.HOUR));
+            i.putExtra("mint", c.get(Calendar.MINUTE));
+
+
+            setAlarm();
+        }
+        startActivity(i);
     }
 
 
@@ -194,11 +268,14 @@ public class DateTimeDemo extends AppCompatActivity {
             PendingIntent pendingIntent = PendingIntent.getBroadcast(DateTimeDemo.this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-            long timeinMillis = calendar.getTimeInMillis();
+            long timeinMillis = updatedCalendar.getTimeInMillis();
 
+            updateTimeText();
+            toastMsg("Reminder set for "+timeText);
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeinMillis, pendingIntent);
-            Toast.makeText(DateTimeDemo.this, "Reminder set for " +timeText , Toast.LENGTH_LONG).show();
 
+
+            //sendNotification();
         }
 
 
@@ -215,9 +292,13 @@ public class DateTimeDemo extends AppCompatActivity {
         Toast.makeText(this, "Alarm cancelled!", Toast.LENGTH_SHORT).show();
     }
 
-    public void sendNotification(View view){
-        NotificationCompat.Builder nb= notificationHelper.getChannelNotification(title, finalCharSeq);
+    public void sendNotification(){
+        NotificationCompat.Builder nb= notificationHelper.getChannelNotification(name, finalCharSeq);
         notificationHelper.getManager().notify(1, nb.build());
+    }
+
+    public void toastMsg(String msg){
+        Toast.makeText(DateTimeDemo.this, msg, Toast.LENGTH_SHORT).show();
     }
 
 

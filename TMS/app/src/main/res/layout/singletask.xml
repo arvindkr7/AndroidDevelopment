@@ -9,7 +9,7 @@
 
     >
     <TextView
-        android:id="@+id/tv_singleTaskSubjectName"
+        android:id="@+id/tv_singleTaskName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Physics"
@@ -18,38 +18,14 @@
         android:textColor="@color/black"
         />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        >
+
         <TextView
-            android:id="@+id/tv_singleTaskTime"
+            android:id="@+id/tv_singleTaskDateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="22:08"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:layout_marginLeft="3dp"
+            android:hint="08:53 am - Thu 22 Feb"
             />
-        <TextView
-            android:id="@+id/tv_singleTaskDayName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sat"
-            android:textAllCaps="true"
-            android:layout_marginHorizontal="3dp"
-            />
-        <TextView
-            android:id="@+id/tv_singleTaskDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="20 feb"
-            android:textAllCaps="true"
-            />
-    </LinearLayout>
+
+
 
 </LinearLayout>

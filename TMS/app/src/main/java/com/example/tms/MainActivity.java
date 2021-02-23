@@ -18,7 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,25 +30,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
-    ListView lvSchedules, lvSubjects, lvCustom;
+    ListView lvSubjects, lvCustom;
     Toolbar  toolbar;
-
+    ImageButton btnaddtask;
     TaskAdapter taskAdapter;
     MyTasks myTasks;
 
     TaskModel tempTask;
 
     ArrayAdapter adapterSchedules, adapterSubjects;
-    ArrayList <String> alSchedules = new ArrayList<>();
+
     ArrayList<String> alSubjects = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        lvSchedules = findViewById(R.id.lv_Schedules);
+
         lvSubjects = findViewById(R.id.lv_Subjects);
         toolbar = findViewById(R.id.mainToolbar);
         setSupportActionBar(toolbar);
+
+        btnaddtask = findViewById(R.id.btn_addNewTask);
+
 
         lvCustom = findViewById(R.id.lv_custom);
         myTasks = ((MyApplication)this.getApplication()).getMyTasks();
@@ -62,18 +67,22 @@ public class MainActivity extends AppCompatActivity {
         if (b!=null) {
             int position = b.getInt("position");
             String name = b.getString("name");
-            String time = b.getString("time");
-            String day = b.getString("day");
-            String date = b.getString("date");
+            int year = b.getInt("year");
+            int month = b.getInt("month");
+            int date = b.getInt("date");
+            int hr = b.getInt("hr");
+            int mint = b.getInt("mint");
 
             // check if object existing then updated else add new object
             if (position!= -1){
                 TaskModel t2= myTasks.getMyTasksList().get(position);
 
-                t2.setSubName(name);
-                t2.setTaskTime(time);
-                t2.setTaskDay(day);
-                t2.setTaskDate(date);
+                t2.setName(name);
+                t2.setYear(year);
+                t2.setMonth(month);
+                t2.setDate(date);
+                t2.setHr(hr);
+                t2.setMint(mint);
             }
 
             else {
@@ -81,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // create new TaskModel object with received data
 
-                tempTask = new TaskModel(name, time, day, date);
+                tempTask = new TaskModel(name, year, month, date, hr, mint);
                 //add new task to list
                 myTasks.getMyTasksList().add(tempTask);
             }
@@ -100,15 +109,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        alSchedules.add("19/02/2021 09:00 AM");
-        alSchedules.add("19/02/2021 10:00 AM");
 
-        adapterSchedules = new ArrayAdapter(this, android.R.layout.simple_list_item_1, alSchedules);
-        lvSchedules.setAdapter(adapterSchedules);
-
-        alSubjects.add("Physics");
-        alSubjects.add("Chemistry");
-        alSubjects.add("Maths");
 
         adapterSubjects = new ArrayAdapter(this, android.R.layout.simple_list_item_1, alSubjects);
         lvSubjects.setAdapter(adapterSubjects);
@@ -123,19 +124,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        // round plus button
+        btnaddtask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),DateTimeDemo.class);
+                startActivity(i);
+            }
+        });
     }
 
-    public void editTask(int position){
-        Intent i = new Intent(getApplicationContext(), NewTaskForm.class);
+    public void editTask(int pos){
+        Intent i = new Intent(getApplicationContext(), DateTimeDemo.class);
 
         // get the contents of the task at position
-        TaskModel t = myTasks.getMyTasksList().get(position);
-        i.putExtra("position", position);
-        i.putExtra("name", t.getSubName());
-        i.putExtra("time", t.getTaskTime());
-        i.putExtra("day", t.getTaskDay());
-        i.putExtra("date", t.getTaskDate());
+        TaskModel t = myTasks.getMyTasksList().get(pos);
+        i.putExtra("position", pos);
+        i.putExtra("name", t.getName());
+        i.putExtra("year", t.getYear());
+        i.putExtra("month", t.getMonth());
+        i.putExtra("date", t.getDate());
+        i.putExtra("hr", t.getHr());
+        i.putExtra("mint",t.getMint());
 
         startActivity(i);
     }
@@ -215,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_addSchedule:
                 msg ="add Schedule";
-                Intent intent = new Intent(MainActivity.this, NewTaskForm.class);
+                Intent intent = new Intent(MainActivity.this, DateTimeDemo.class);
                 intent.putExtra("position", -1);
                 startActivity(intent);
                 break;

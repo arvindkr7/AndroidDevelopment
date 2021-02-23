@@ -1,47 +1,65 @@
 package com.example.tms;
 
+import java.util.Calendar;
+
 public class TaskModel{
-    private  String subName;
-    private String taskTime;
-    private String taskDay;
-    private String taskDate;
+    private  String name;
+    private int year, month, date, hr, mint;
 
-    public TaskModel(String subName, String taskTime, String taskDay, String taskDate) {
-        this.subName = subName;
-        this.taskTime = taskTime;
-        this.taskDay = taskDay;
-        this.taskDate = taskDate;
+    public TaskModel(String name, int year, int month, int date, int hr, int mint) {
+        this.name = name;
+        this.year = year;
+        this.month = month;
+        this.date = date;
+        this.hr = hr;
+        this.mint = mint;
     }
 
-    public String getSubName() {
-        return subName;
+    public String getName() {
+        return name;
     }
 
-    public void setSubName(String subName) {
-        this.subName = subName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getTaskTime() {
-        return taskTime;
+    public int getYear() {
+        return year;
     }
 
-    public void setTaskTime(String taskTime) {
-        this.taskTime = taskTime;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public String getTaskDay() {
-        return taskDay;
+    public int getMonth() {
+        return month;
     }
 
-    public void setTaskDay(String taskDay) {
-        this.taskDay = taskDay;
+    public void setMonth(int month) {
+        this.month = month;
     }
 
-    public String getTaskDate() {
-        return taskDate;
+    public int getDate() {
+        return date;
     }
 
-    public void setTaskDate(String taskDate) {
-        this.taskDate = taskDate;
+    public void setDate(int date) {
+        this.date = date;
+    }
+
+    public int getHr() {
+        return hr;
+    }
+
+    public void setHr(int hr) {
+        this.hr = hr;
+    }
+
+    public int getMint() {
+        return mint;
+    }
+
+    public void setMint(int mint) {
+        this.mint = mint;
     }
 }

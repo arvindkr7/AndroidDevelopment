@@ -10,6 +10,18 @@
     android:layout_margin="10dp"
     android:gravity="center_vertical"
     >
+    <EditText
+        android:id="@+id/taskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Task Name"
+
+        android:padding="15dp"
+        android:drawableStart="@drawable/ic_round_menu_book_24"
+        android:drawablePadding="10dp"
+
+        android:background="@drawable/custom_listview_outlined_card"
+        />
 
     <TextView
         android:id="@+id/dpdemo"
@@ -81,11 +93,7 @@
 
     </RelativeLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="send notification"
-        android:onClick="sendNotification"/>
+
 
 
 </LinearLayout>
