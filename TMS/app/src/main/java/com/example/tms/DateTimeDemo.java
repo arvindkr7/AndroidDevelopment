@@ -123,7 +123,7 @@ public class DateTimeDemo extends AppCompatActivity {
 
 
                 }, year, month, day);
-                    datePickerDialog.getDatePicker().setMinDate(current.getTimeInMillis());
+                    datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
                     // date before today is not possible to set any reminder
 
 
@@ -256,23 +256,35 @@ public class DateTimeDemo extends AppCompatActivity {
     }
 
     public void save(Calendar c){
-        Intent i = new Intent(DateTimeDemo.this, MainActivity.class);
+
         if (verify()) {
 
-            toastMsg("Saved successfully!");
-            name = et.getText().toString();
-            i.putExtra("position", position);
-            i.putExtra("name", name);
-            i.putExtra("year", c.get(Calendar.YEAR));
-            i.putExtra("month", c.get(Calendar.MONTH));
-            i.putExtra("date", c.get(Calendar.DAY_OF_MONTH));
-            i.putExtra("hr", c.get(Calendar.HOUR_OF_DAY));
-            i.putExtra("mint", c.get(Calendar.MINUTE));
 
-            finalCharSeq = DateFormat.format("hh:mm a - E dd MMM", c);
-            setAlarm(updatedCalendar.getTimeInMillis());
+
+            name = et.getText().toString();
+            if (name.isEmpty()){
+                toastMsg("Ohh, you forgot the activity name");
+            }
+            else {
+                Intent i = new Intent(DateTimeDemo.this, MainActivity.class);
+
+                toastMsg("Saved successfully!");
+                i.putExtra("position", position);
+                i.putExtra("name", name);
+                i.putExtra("year", c.get(Calendar.YEAR));
+                i.putExtra("month", c.get(Calendar.MONTH));
+                i.putExtra("date", c.get(Calendar.DAY_OF_MONTH));
+                i.putExtra("hr", c.get(Calendar.HOUR_OF_DAY));
+                i.putExtra("mint", c.get(Calendar.MINUTE));
+
+                finalCharSeq = DateFormat.format("hh:mm a - E dd MMM", c);
+                setAlarm(updatedCalendar.getTimeInMillis());
+
+                startActivity(i);
+            }
+
         }
-        startActivity(i);
+
     }
 
     public void deleteTask(){
@@ -297,7 +309,7 @@ public class DateTimeDemo extends AppCompatActivity {
 
             Intent i = new Intent(DateTimeDemo.this, ReminderBroadcastReceiver.class);
             i.putExtra("title", name);
-            i.putExtra("desc", finalCharSeq);
+            i.putExtra("desc", finalCharSeq.toString());
             PendingIntent pendingIntent = PendingIntent.getBroadcast(DateTimeDemo.this, 1, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
             AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
