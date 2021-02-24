@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TMS">
-        <activity android:name=".DateTimeDemo"></activity>
+        <activity android:name=".DateTimeDemo"
+            android:parentActivityName=".MainActivity"
+            ></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".NewTaskForm" />
         <activity android:name=".SplashActivity">

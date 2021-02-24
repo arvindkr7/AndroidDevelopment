@@ -11,18 +11,20 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 
 public class NotificationHelper extends ContextWrapper {
-    public static final String channelID="channelID2";
+    public static final String channelID = "channelID2";
     public static final String channelName = "Channel 2";
 
-    private  NotificationManager nManager;
+    private NotificationManager nManager;
+
     public NotificationHelper(Context base) {
         super(base);
-        if (Build.VERSION.SDK_INT>Build.VERSION_CODES.O){
-        createChannel();}
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+            createChannel();
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.O)
-    public void createChannel(){
+    public void createChannel() {
         NotificationChannel notificationChannel = new NotificationChannel(channelID, channelName, NotificationManager.IMPORTANCE_DEFAULT);
         notificationChannel.enableLights(true);
         notificationChannel.enableVibration(true);
@@ -32,22 +34,23 @@ public class NotificationHelper extends ContextWrapper {
         getManager().createNotificationChannel(notificationChannel);
     }
 
-    public NotificationManager getManager(){
-        if (nManager==null )
+    public NotificationManager getManager() {
+        if (nManager == null)
             // otherwise already existing
-            nManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+            nManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        return  nManager;
+        return nManager;
     }
 
 
-    public NotificationCompat.Builder getChannelNotification(String title, CharSequence desc){
+    public NotificationCompat.Builder getChannelNotification(String title, CharSequence desc) {
         return new NotificationCompat.Builder(getApplicationContext(), channelID)
                 .setContentTitle(title)
                 .setContentText(desc)
                 .setSmallIcon(R.drawable.ic_round_library_add_check_24);
 
 
-
     }
 }
+
+

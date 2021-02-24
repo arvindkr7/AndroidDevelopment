@@ -81,8 +81,12 @@ public class TaskAdapter extends BaseAdapter implements Filterable {
         int mint = t.getMint();
 
         Calendar c = Calendar.getInstance();
+        //c.set(Calendar.AM_PM,0);
 
         c.set( year, month, date, hr, mint,0);
+
+
+        //c.set(Calendar.AM_PM,1);
 
         CharSequence dateTime = DateFormat.format("hh:mm a - E dd MMM", c);
         return dateTime;

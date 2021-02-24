@@ -48,6 +48,9 @@ public class DateTimeDemo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_time_demo);
+
+        //getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+
         notificationHelper = new NotificationHelper(DateTimeDemo.this);
         dp = findViewById(R.id.dpdemo);
         tp = findViewById(R.id.tpdemo);
@@ -59,6 +62,8 @@ public class DateTimeDemo extends AppCompatActivity {
         delete = findViewById(R.id.btn_deleteTask);
         //receivedCalendar.set(Calendar.AM_PM,0);
         receivedCalendar.set(Calendar.SECOND,0);
+        //receivedCalendar.set(Calendar.AM_PM,1);
+        //updatedCalendar.set(Calendar.AM_PM,0);
         currtime =DateFormat.format("hh:mm a",current);
         //updatedCalendar.set(Calendar.AM,0);
         //displayDate();
@@ -107,7 +112,10 @@ public class DateTimeDemo extends AppCompatActivity {
                         updatedCalendar.set(Calendar.MONTH, month);
                         updatedCalendar.set(Calendar.DAY_OF_MONTH, day);
 
+
+
                         displayDate(updatedCalendar);
+                        displayTime(updatedCalendar);
                         displayDateTime(updatedCalendar);
 
                     }
@@ -117,6 +125,7 @@ public class DateTimeDemo extends AppCompatActivity {
                 }, year, month, day);
                     datePickerDialog.getDatePicker().setMinDate(current.getTimeInMillis());
                     // date before today is not possible to set any reminder
+
 
                 datePickerDialog.show();
 
@@ -133,7 +142,7 @@ public class DateTimeDemo extends AppCompatActivity {
                         hr = i;
                         mint = i1;
 
-                        updatedCalendar.set(Calendar.HOUR, hr);
+                        updatedCalendar.set(Calendar.HOUR_OF_DAY, hr);
                         updatedCalendar.set(Calendar.MINUTE, mint);
 
 
@@ -142,6 +151,7 @@ public class DateTimeDemo extends AppCompatActivity {
                         displayDateTime(updatedCalendar);
                     }
                 }, hr, mint, is24hr);
+                timePickerDialog.updateTime(hr,mint);
 
                 timePickerDialog.show();
 
@@ -256,7 +266,7 @@ public class DateTimeDemo extends AppCompatActivity {
             i.putExtra("year", c.get(Calendar.YEAR));
             i.putExtra("month", c.get(Calendar.MONTH));
             i.putExtra("date", c.get(Calendar.DAY_OF_MONTH));
-            i.putExtra("hr", c.get(Calendar.HOUR));
+            i.putExtra("hr", c.get(Calendar.HOUR_OF_DAY));
             i.putExtra("mint", c.get(Calendar.MINUTE));
 
             finalCharSeq = DateFormat.format("hh:mm a - E dd MMM", c);
@@ -297,7 +307,7 @@ public class DateTimeDemo extends AppCompatActivity {
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeinMillis, pendingIntent);
         updateTimeText();
             toastMsg("Reminder set for "+timeText);
-            toastMsg("will ring in "+(timeinMillis/1000)+" sec");
+
 
 
 

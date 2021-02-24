@@ -16,12 +16,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tv= findViewById(R.id.tv_battery_Percentage);
 
-        b = new DemoBR(tv);
-        registerReceiver(b, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        //b = new DemoBR(tv);
+        //registerReceiver(b, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
     }
     @Override
     protected  void  onDestroy(){
         super.onDestroy();
-        unregisterReceiver(b);
+        //unregisterReceiver(b);
     }
 }
