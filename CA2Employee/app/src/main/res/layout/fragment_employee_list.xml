@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app= "http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EmployeeDetailsFragment"
     android:orientation="vertical"
-    android:gravity="center_vertical"
     >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:gravity="center"
+        android:text="Hello, World!"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
         />
-    <EditText
-        android:id="@+id/et_name_fl_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Employee Name"
-        />
-    <Button
-        android:id="@+id/btn_submit_fl_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
 
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/employee_card_layout"
         />
 
 

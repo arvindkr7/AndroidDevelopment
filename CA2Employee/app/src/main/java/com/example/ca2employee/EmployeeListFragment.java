@@ -93,7 +93,7 @@ public class EmployeeListFragment extends Fragment {
             // okay, now get this details on new fragment. that is detail
 
             assert getFragmentManager() != null;
-            getFragmentManager().beginTransaction().replace(R.id.fl_main, detailsFragment).commit();
+            getFragmentManager().beginTransaction().replace(R.id.fl_main, detailsFragment, null).addToBackStack(null).commit();
 
         });
 
