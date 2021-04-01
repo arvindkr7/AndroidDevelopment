@@ -40,4 +40,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Custom List View"/>
+    <Button
+        android:id="@+id/btn_goto_SharePreferences"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shared Preferences"/>
+
 </LinearLayout>

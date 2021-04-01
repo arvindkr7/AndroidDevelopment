@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CLV"></activity>
+        <activity android:name=".SharedPreferences"></activity>
+        <activity android:name=".CLV" />
         <activity android:name=".P12Header" />
         <activity android:name=".P12Footer" />
         <activity android:name=".DemoTimePicker" />
