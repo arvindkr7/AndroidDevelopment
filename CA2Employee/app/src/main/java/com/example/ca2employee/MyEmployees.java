@@ -6,6 +6,10 @@ import java.util.List;
 public class MyEmployees {
 
     List<EmployeeModel> myEmployeesList;
+    // generate constructor
+    public MyEmployees(List<EmployeeModel> myEmployeesList) {
+        this.myEmployeesList = myEmployeesList;
+    }
     // default constructor for default values to display
     public MyEmployees(){
         int[] images = {R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground};
@@ -23,11 +27,6 @@ public class MyEmployees {
     }
 
 
-
-    // generate constructor
-    public MyEmployees(List<EmployeeModel> myEmployeesList) {
-        this.myEmployeesList = myEmployeesList;
-    }
 
 
     public List<EmployeeModel> getMyEmployeesList() {

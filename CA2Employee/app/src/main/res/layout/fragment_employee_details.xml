@@ -7,14 +7,25 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".EmployeeListFragment"
-
-    android:gravity="center"
+    android:gravity="fill_vertical"
+    android:orientation="vertical"
     >
 
 <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/iv_image_fl_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/tv_name_fl_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
 <TextView
-    android:id="@+id/tv_name_fl_details"
-    android:layout_width="wrap_content"
+    android:id="@+id/tv_jobTitle_fl_details"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/hello_blank_fragment" />
 

@@ -1,6 +1,8 @@
 package com.example.ca2employee;
 
-public class MyApplication {
+import android.app.Application;
+
+public class MyApplication extends Application {
     private MyEmployees myEmployees = new MyEmployees();
 
     public MyEmployees getMyEmployees() {

@@ -1,73 +1,87 @@
 package com.example.ca2employee;
-
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeAdapter extends BaseAdapter {
+public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder> {
+
 
     // initialize required variables
-    private final Context context;
-    private final List<EmployeeModel> employeesList;
+    //private final Context context;
+    private final List<EmployeeModel> employeeList;
 
-    public EmployeeAdapter(Activity context, MyEmployees myEmployees) {
-        this.context = context;
-        this.employeesList = myEmployees.getMyEmployeesList();
+
+
+    // generate constructor
+    public EmployeeAdapter(List<EmployeeModel> employeeModelArrayList) {
+        //this.context = context;
+        this.employeeList = employeeModelArrayList;
+        notifyDataSetChanged();
+
+    }
+
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        // initialize view
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.employee_card_layout, parent, false);
+
+        return new ViewHolder(view);
     }
 
     @Override
-    public int getCount() {
-        // no. of employees in the list
-        return employeesList.size();
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        EmployeeModel employeeModel = employeeList.get(position);
+
+        // set image on image view
+        holder.imageView.setImageResource(employeeModel.getImage());
+        holder.tvName.setText(employeeModel.getName());
+        holder.tvJobTitle.setText(employeeModel.getJobTitle());
+
+
     }
 
     @Override
-    public EmployeeModel getItem(int i) {
-
-        // get item at index i
-        return employeesList.get(i);
+    public int getItemCount() {
+        return employeeList.size();
     }
 
-    @Override
-    public long getItemId(int i) {
 
-        // optional method generally returns null
-        return 0;
+    // this class is being extended as RecyclerView.Adapter<EmployeeAdapter.ViewHolder>
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+
+
+        // initialize required views for the card view
+        ImageView imageView;
+        TextView tvName, tvJobTitle;
+
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            // connect widgets to the actual IDs to communicate with them
+
+            imageView = itemView.findViewById(R.id.iv_image_ecLayout);
+            tvName = itemView.findViewById(R.id.tv_name_ecLayout);
+            tvJobTitle = itemView.findViewById(R.id.tv_jobTitle_ecLayout);
+
+        }
+
     }
 
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
 
-        // most important this will return the required values for single employee
-
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater.inflate(R.layout.employee_card_layout, viewGroup, false);
-
-        // now getting the required views of employee card layout
-        ImageView image = view.findViewById(R.id.iv_image_ecLayout);
-        TextView tvName = view.findViewById(R.id.tv_name_ecLayout);
-        TextView tvJobTitle = view.findViewById(R.id.tv_jobTitle_ecLayout);
-
-        // get details of employee at current index i
-        EmployeeModel employee = (EmployeeModel)this.getItem(i);
-
-        // now set those values to views
-
-        image.setImageResource(employee.getImage());
-        tvName.setText(employee.getName());
-        tvJobTitle.setText(employee.getJobTitle());
-
-
-
-        return view;
-    }
 }
