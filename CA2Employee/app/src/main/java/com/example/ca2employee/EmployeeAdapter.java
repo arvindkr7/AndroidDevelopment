@@ -1,9 +1,11 @@
 package com.example.ca2employee;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,6 +60,44 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         holder.tvJobTitle.setText(employeeModel.getJobTitle());
 
 
+        // set on click listener on edit button
+
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //  create dialog alert
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
+
+                View dialogView =LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.custom_dialog, null);
+
+                de.hdodenhof.circleimageview.CircleImageView imageView;
+                TextView tvName, tvJobTitle;
+                imageView = dialogView.findViewById(R.id.iv_image_cd);
+                tvName = dialogView.findViewById(R.id.tv_name_cd);
+                tvJobTitle = dialogView.findViewById(R.id.tv_jobTitle_cd);
+
+
+
+                imageView.setImageResource(employeeModel.getImage());
+                tvName.setText(employeeModel.getName());
+                tvJobTitle.setText(employeeModel.getJobTitle());
+
+
+                builder.setView(dialogView);
+                builder.setCancelable(true);
+                builder.show();
+
+
+
+
+
+            }
+        });
+
+
+
+
     }
 
     @Override
@@ -74,6 +114,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         // initialize required views for the card view
         de.hdodenhof.circleimageview.CircleImageView imageView;
         TextView tvName, tvJobTitle;
+        Button btnEdit;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -84,6 +125,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
             imageView = itemView.findViewById(R.id.iv_image_ecLayout);
             tvName = itemView.findViewById(R.id.tv_name_ecLayout);
             tvJobTitle = itemView.findViewById(R.id.tv_jobTitle_ecLayout);
+            btnEdit = itemView.findViewById(R.id.btn_edit_ecLayout);
 
 
             // set on item click listener on each card what to happen

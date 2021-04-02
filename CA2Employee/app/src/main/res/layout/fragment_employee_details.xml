@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".EmployeeListFragment"
-    android:gravity="fill_vertical"
-    android:orientation="vertical"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".EmployeeListFragment"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical">
+
 
 <!-- TODO: Update blank fragment layout -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_image_fl_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_gravity="center_horizontal"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/purple_500"
         />
     <TextView
         android:id="@+id/tv_name_fl_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of employee"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        />
 
 
 <TextView
     android:id="@+id/tv_jobTitle_fl_details"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="@string/hello_blank_fragment" />
+    android:text="Job title goes here"
+    android:layout_gravity="center_horizontal"
+    android:textSize="20sp"
+    />
+
+
 
 </LinearLayout>
