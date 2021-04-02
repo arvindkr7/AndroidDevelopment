@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -16,7 +17,8 @@ import android.widget.TextView;
  */
 public class EmployeeDetailsFragment extends Fragment {
 
-    TextView textView;
+    TextView tvName, tvJobTitle;
+    de.hdodenhof.circleimageview.CircleImageView imageView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,14 +66,23 @@ public class EmployeeDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_employee_details, container, false);
 
-        textView = v.findViewById(R.id.tv_name_fl_details);
+        tvName = v.findViewById(R.id.tv_name_fl_details);
+        tvJobTitle = v.findViewById(R.id.tv_jobTitle_fl_details);
+        imageView = v.findViewById(R.id.iv_image_fl_details);
 
         Bundle bundle = this.getArguments();
         if (bundle!=null){
             String name = bundle.getString("name");
-            textView.setText("Hello, "+name);
+
+            String jobTitle = bundle.getString("jobTitle");
+            int image = bundle.getInt("image");
+
+            tvName.setText("Hello, "+name);
+            tvJobTitle.setText("Position of Responsibility "+jobTitle);
+            imageView.setImageResource(image);
+
         }else {
-            textView.setText("Sorry, I don't know what's ur name");
+            tvName.setText("Sorry, I don't know what's ur name");
         }
 
 

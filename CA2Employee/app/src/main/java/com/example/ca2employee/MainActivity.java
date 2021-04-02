@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState!=null) return;
+
         // it will add the first fragment in the FrameLayout by default
         getSupportFragmentManager().beginTransaction().add(R.id.fl_main, new EmployeeListFragment()).commit();
 

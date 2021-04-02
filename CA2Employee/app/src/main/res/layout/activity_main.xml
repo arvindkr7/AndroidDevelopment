@@ -4,7 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Employees"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textColor="@color/teal_200"
+        android:background="#fff"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textSize="27sp"
+        android:paddingVertical="10dp"
+        android:elevation="2dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#46B5B1B1"
+        android:layout_marginBottom="10dp"
+        />
+
+
 
     <FrameLayout
         android:id="@+id/fl_main"

@@ -12,7 +12,7 @@ tools:context=".EmployeeListFragment"
     >
 
 <!-- TODO: Update blank fragment layout -->
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_image_fl_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

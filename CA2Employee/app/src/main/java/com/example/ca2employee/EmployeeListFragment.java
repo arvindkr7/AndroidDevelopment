@@ -104,17 +104,17 @@ public class EmployeeListFragment extends Fragment {
         // adding two more objects into the collection
 
 
-        EmployeeModel e1 = new EmployeeModel(R.drawable.ic_launcher_background, "Arvind","ceo");
-        employeesList.add(e1);
+        //EmployeeModel e1 = new EmployeeModel(R.drawable.ic_launcher_background, "Arvind","ceo");
+        //employeesList.add(e1);
 
-        EmployeeModel e2 = new EmployeeModel(R.drawable.ic_launcher_foreground, "kumar","md");
-        employeesList.add(e2);
+        //EmployeeModel e2 = new EmployeeModel(R.drawable.ic_launcher_foreground, "kumar","md");
+        //employeesList.add(e2);
 
         //employeesList = myEmployees.getMyEmployeesList();
 
         // initialize adapter
 
-        employeeAdapter = new EmployeeAdapter(employeesList);
+        employeeAdapter = new EmployeeAdapter(getContext(), employeesList);
 
 
 
