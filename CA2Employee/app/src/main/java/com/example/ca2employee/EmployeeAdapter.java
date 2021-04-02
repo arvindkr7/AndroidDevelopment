@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,7 +63,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
 
     // this class is being extended as RecyclerView.Adapter<EmployeeAdapter.ViewHolder>
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
         // initialize required views for the card view
@@ -79,8 +80,23 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
             tvName = itemView.findViewById(R.id.tv_name_ecLayout);
             tvJobTitle = itemView.findViewById(R.id.tv_jobTitle_ecLayout);
 
+
+            // set on item click listener on each card what to happen
+
+            itemView.setOnClickListener(this);
+
         }
 
+        @Override
+        public void onClick(View view) {
+
+            EmployeeModel e = employeeList.get(getAdapterPosition());
+
+            // just a toast for debugging
+
+            Toast.makeText(view.getContext(), e.getName() +" "+e.getJobTitle(), Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 
