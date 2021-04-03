@@ -32,42 +32,12 @@
 
         />
 
-
-
     <FrameLayout
         android:id="@+id/fl_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title_divider"
         />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="15dp"
-        android:background="@drawable/custom_toolbar"
-        >
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true"
-            app:queryHint="Search for people"
-            app:searchHintIcon="@drawable/ic_person_search"
-            android:background="@drawable/custom_searchview"
-            />
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/ic_person_add"
-            android:background="@drawable/custom_add_button"
-            android:layout_centerInParent="true"
-            android:padding="12dp"
-
-            />
-    </RelativeLayout>
 
 </RelativeLayout>

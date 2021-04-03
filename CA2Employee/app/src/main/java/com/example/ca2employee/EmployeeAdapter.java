@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder> {
+public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder> implements Filterable {
 
     public static FragmentManager fragmentManager;
 
@@ -26,6 +28,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
     // initialize required variables
     private final Context context;
     private final List<EmployeeModel> employeeList;
+    ArrayList<EmployeeModel> backup;
 
 
 
@@ -33,6 +36,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
     public EmployeeAdapter(Context context, List<EmployeeModel> employeeModelArrayList) {
         this.context = context;
         this.employeeList = employeeModelArrayList;
+        this.backup = new ArrayList<>(employeeModelArrayList);
         notifyDataSetChanged();
 
     }
@@ -106,6 +110,8 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
     }
 
 
+
+
     // this class is being extended as RecyclerView.Adapter<EmployeeAdapter.ViewHolder>
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -172,6 +178,63 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
 
         }
     }
+
+    // implementing Filterable method here
+    @Override
+    public Filter getFilter() {
+        // now create internal class of Filter type
+        return filter;
+    }
+
+    // filter result works through background thread or can say child thread
+    // backend thread
+    Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence keyword) {
+
+            // create a temporary arrayList of EmployeeModel type for storing or modifying records
+            ArrayList<EmployeeModel> filteredList= new ArrayList<>();
+
+            // when no character, return the original list itself
+            if (keyword.toString().isEmpty()) filteredList.addAll(backup);
+            else {
+
+                // searching result only on employee name
+                for (EmployeeModel emp:backup){
+                    if (emp.getName().toString().toLowerCase().contains(keyword.toString().toLowerCase()))
+                        filteredList.add(emp);
+
+                }
+            }
+
+            // make an object of FilterResults type then pass to publishResult for final updating
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+
+            return results;
+        }
+
+        // publishing results work through main thread (frontend thread)
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults results) {
+            // the data comes to results parameter
+
+            // 1. clear the existing data of original arraylist
+            // 2. now, push the received results into original list
+
+            employeeList.clear();
+
+            // typecast required to that of original list
+            employeeList.addAll((ArrayList<EmployeeModel>)results.values);
+            notifyDataSetChanged(); // acknowledgement to main thread to take next action
+
+        }
+    };  // getFilter function ends here
+
+
 
 
 }
