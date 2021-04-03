@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical"
     >
     <TextView
+        android:id="@+id/header_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Employees"
@@ -20,12 +20,16 @@
         android:textSize="27sp"
         android:paddingVertical="10dp"
         android:elevation="2dp"
+
         />
     <View
+        android:id="@+id/title_divider"
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:background="#46B5B1B1"
         android:layout_marginBottom="10dp"
+        android:layout_below="@+id/header_title"
+
         />
 
 
@@ -33,7 +37,37 @@
     <FrameLayout
         android:id="@+id/fl_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_divider"
         />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:background="@drawable/custom_toolbar"
+        >
 
-</LinearLayout>
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            app:queryHint="Search for people"
+            app:searchHintIcon="@drawable/ic_person_search"
+            android:background="@drawable/custom_searchview"
+            />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_person_add"
+            android:background="@drawable/custom_add_button"
+            android:layout_centerInParent="true"
+            android:padding="12dp"
+
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
