@@ -1,5 +1,6 @@
 package com.example.ca2employee;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -76,10 +77,17 @@ public class EmployeeDetailsFragment extends Fragment {
 
             String jobTitle = bundle.getString("jobTitle");
             int image = bundle.getInt("image");
+            Uri imageUri = (Uri) bundle.getParcelable("imageUri");
 
             tvName.setText("Hello, "+name);
             tvJobTitle.setText("Position of Responsibility "+jobTitle);
-            imageView.setImageResource(image);
+
+            if (imageUri!=null){
+                imageView.setImageURI(imageUri);
+            }else{
+                imageView.setImageResource(image);
+            }
+
 
         }else {
             tvName.setText("Sorry, I don't know what's ur name");

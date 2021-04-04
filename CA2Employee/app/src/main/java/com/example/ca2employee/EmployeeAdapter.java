@@ -1,13 +1,16 @@
 package com.example.ca2employee;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,7 +62,12 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         EmployeeModel employeeModel = employeeList.get(position);
 
         // set image on image view
-        holder.imageView.setImageResource(employeeModel.getImage());
+        if (employeeModel.getImageUri()!=null){
+            holder.imageView.setImageURI(employeeModel.getImageUri());
+        }else{
+        holder.imageView.setImageResource(employeeModel.getImage());}
+
+
         holder.tvName.setText(employeeModel.getName());
         holder.tvJobTitle.setText(employeeModel.getJobTitle());
 
@@ -74,27 +82,117 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
 
                 View dialogView =LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.custom_dialog, null);
+                ImageButton btnClose;
+                de.hdodenhof.circleimageview.CircleImageView imageView;
+                EditText tvName, tvJobTitle;
 
+                btnClose = dialogView.findViewById(R.id.btn_close_cd);
+                imageView = dialogView.findViewById(R.id.iv_image_cd);
+                tvName = dialogView.findViewById(R.id.et_name_cd);
+                tvJobTitle = dialogView.findViewById(R.id.et_jobTitle_cd);
+
+
+                if (employeeModel.getImageUri()!=null){
+                    imageView.setImageURI(employeeModel.getImageUri());
+                }else{
+                    imageView.setImageResource(employeeModel.getImage());
+                }
+
+                tvName.setText(employeeModel.getName());
+                tvJobTitle.setText(employeeModel.getJobTitle());
+
+
+                builder.setView(dialogView)
+                        .setCancelable(true)
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                //builder.show();
+
+                final AlertDialog show = builder.show();
+
+                btnClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        show.dismiss();
+                        Toast.makeText(context.getApplicationContext(), "Cancelled!", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
+
+
+
+            }
+        });
+
+
+        // set click listener on
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+
+            // get the position which data to be removed from adapter
+            int position1 = holder.getAdapterPosition();
+
+
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
+                View dialogView =LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.delete_dialog, null);
                 de.hdodenhof.circleimageview.CircleImageView imageView;
                 TextView tvName, tvJobTitle;
-                imageView = dialogView.findViewById(R.id.iv_image_cd);
-                tvName = dialogView.findViewById(R.id.tv_name_cd);
-                tvJobTitle = dialogView.findViewById(R.id.tv_jobTitle_cd);
+
+                imageView = dialogView.findViewById(R.id.iv_image_dd);
+                tvName = dialogView.findViewById(R.id.tv_name_dd);
+                tvJobTitle = dialogView.findViewById(R.id.tv_jobTitle_dd);
 
 
+                if (employeeModel.getImageUri()!=null){
+                    imageView.setImageURI(employeeModel.getImageUri());
+                }else{
+                    imageView.setImageResource(employeeModel.getImage());
+                }
 
-                imageView.setImageResource(employeeModel.getImage());
                 tvName.setText(employeeModel.getName());
                 tvJobTitle.setText(employeeModel.getJobTitle());
 
 
                 builder.setView(dialogView);
-                builder.setCancelable(true);
-                builder.show();
 
+                builder.setTitle("Are you sure want to delete")
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(context, "Not deleted!", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
+                                EmployeeModel employee = employeeList.get(position1);
+                                // remove that element from the adapter showing in list
+                                employeeList.remove(position1);
 
+                                // notify adapter which position removed
+                                notifyItemRemoved(position1);
+                                notifyItemRangeChanged(position1, employeeList.size());
 
+                                Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
 
             }
         });
@@ -120,7 +218,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         // initialize required views for the card view
         de.hdodenhof.circleimageview.CircleImageView imageView;
         TextView tvName, tvJobTitle;
-        Button btnEdit;
+        ImageButton btnEdit, btnDelete;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -132,6 +230,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
             tvName = itemView.findViewById(R.id.tv_name_ecLayout);
             tvJobTitle = itemView.findViewById(R.id.tv_jobTitle_ecLayout);
             btnEdit = itemView.findViewById(R.id.btn_edit_ecLayout);
+            btnDelete = itemView.findViewById(R.id.btn_delete_ecLayout);
 
 
             // set on item click listener on each card what to happen
@@ -156,7 +255,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
             bundle.putString("name", e.getName());
             bundle.putString("jobTitle", e.getJobTitle());
             bundle.putInt("image", e.getImage());
-
+            bundle.putParcelable("imageUri", e.getImageUri());
 
 
 
