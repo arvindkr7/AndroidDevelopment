@@ -1,25 +1,20 @@
 package com.example.ca2employee;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EmployeeAdapter.callbackInterface{
 
 
 
-
+    private static final int PICK_IMAGE = 1;
+    Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,27 +30,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.fl_main, new EmployeeListFragment()).commit();
 
 
-            /*
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-
-                // here, communicating getFilter method of adapter class (implemented Filterable)
-
-
-
-                //showToast(newText);
-                return false;
-            }
-        });
-
-
-             */
 
 
 
@@ -69,5 +44,48 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
+    public void pickImage(){
+
+        Intent gallery = new Intent(Intent.ACTION_GET_CONTENT);
+        gallery.setType("image/*");
+
+        //gallery.setAction(Intent.ACTION_GET_CONTENT);
+
+        // startActivityForResult(gallery, PICK_IMAGE);
+
+        startActivityForResult(Intent.createChooser(gallery, "Select Profile Picture"), PICK_IMAGE);
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode==PICK_IMAGE) {
+            if (data != null) {
+                imageUri = data.getData();
+            }
+        }
+    }
+
+    @Override
+    public Uri onHandleSelection(Context context) {
+        //showToast("position received "+position1);
+
+
+        Intent gallery = new Intent(Intent.ACTION_GET_CONTENT);
+        gallery.setType("image/*");
+
+        //gallery.setAction(Intent.ACTION_GET_CONTENT);
+
+        // startActivityForResult(gallery, PICK_IMAGE);
+        //
+        ((Activity) context).startActivityForResult(Intent.createChooser(gallery, "Select Profile Picture"), PICK_IMAGE);
+
+
+
+        return imageUri;
+    }
 
 }

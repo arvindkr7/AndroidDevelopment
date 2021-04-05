@@ -145,6 +145,8 @@ public class EmployeeListFragment extends Fragment {
 
         recyclerView.setAdapter(employeeAdapter);
 
+        // searching methods belows
+
         searchView = v.findViewById(R.id.searchView);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -245,7 +247,11 @@ public class EmployeeListFragment extends Fragment {
 
         employeesList.add(e);
 
-        employeeAdapter.notifyItemInserted(employeesList.size()-1); // acknowledge to adapter new data inserted
+        //myEmployees.setMyEmployeesList(employeesList);
+
+       // employeeAdapter.notifyDataSetChanged();
+
+        employeeAdapter.notifyItemInserted(employeesList.size()); // acknowledge to adapter new data inserted
         Toast.makeText(getActivity(), "Added successfully", Toast.LENGTH_SHORT).show();
 
     }
@@ -269,9 +275,12 @@ public class EmployeeListFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==PICK_IMAGE){
-            imageUri = data.getData();
+            if (data!=null){
+                imageUri = data.getData();
 
-            imageView.setImageURI(imageUri);
+                imageView.setImageURI(imageUri);
+            }
+
             //Toast.makeText(getContext(), "imageUri "+imageUri.toString(), Toast.LENGTH_SHORT).show();
         }
 

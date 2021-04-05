@@ -2,11 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".EmployeeListFragment"
-    android:layout_gravity="center_vertical"
-    android:orientation="vertical">
+    android:gravity="center"
+    android:orientation="vertical"
+
+    android:elevation="5dp"
+    >
+
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You are looking the profile of"
+        android:layout_marginBottom="12dp"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:layout_marginTop="50dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#a9a9a9"
+        android:layout_marginVertical="20dp"
+        />
 
 
 <!-- TODO: Update blank fragment layout -->
@@ -15,33 +41,95 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/ic_photo_camera_back"
-        android:layout_gravity="center_horizontal"
         app:civ_border_width="2dp"
-        app:civ_border_color="@color/purple_500"
+        app:civ_border_color="@color/teal_200"
+        android:layout_marginBottom="10dp"
         />
-    <TextView
-        android:id="@+id/tv_name_fl_details"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name of employee"
-        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="20dp"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:fontFamily="sans-serif"
-        android:textStyle="bold"
-        />
+        android:gravity="center"
+        android:layout_margin="10dp"
 
-
-<TextView
-    android:id="@+id/tv_jobTitle_fl_details"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Job title goes here"
-    android:layout_gravity="center_horizontal"
-    android:textSize="20sp"
-    />
+        >
 
 
 
-</LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/custom_edit_button"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/teal_200"
+                android:textSize="17sp"
+                android:fontFamily="sans-serif"
+
+                />
+            <TextView
+                android:id="@+id/tv_name_fl_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name of employee"
+
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_edit_button"
+            android:padding="10dp"
+            >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Job Title"
+                android:textSize="17sp"
+                android:textColor="@color/teal_200"
+                />
+            <TextView
+                android:id="@+id/tv_jobTitle_fl_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Job title"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+

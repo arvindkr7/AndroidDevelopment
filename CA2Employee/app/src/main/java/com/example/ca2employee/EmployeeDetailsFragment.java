@@ -79,8 +79,8 @@ public class EmployeeDetailsFragment extends Fragment {
             int image = bundle.getInt("image");
             Uri imageUri = (Uri) bundle.getParcelable("imageUri");
 
-            tvName.setText("Hello, "+name);
-            tvJobTitle.setText("Position of Responsibility "+jobTitle);
+            tvName.setText(name);
+            tvJobTitle.setText(jobTitle);
 
             if (imageUri!=null){
                 imageView.setImageURI(imageUri);

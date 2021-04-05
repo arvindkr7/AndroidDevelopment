@@ -12,7 +12,7 @@ public class MyEmployees {
     }
     // default constructor for default values to display
     public MyEmployees(){
-        int[] images = {R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground};
+        int[] images = {R.drawable.arvind, R.drawable.autumhacks};
         String[] names = {"Arvind", "Kumar"};
         String[] jobTitles = {"CL", "MD"};
 
