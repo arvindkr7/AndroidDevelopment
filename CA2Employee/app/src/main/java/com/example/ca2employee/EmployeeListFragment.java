@@ -211,7 +211,7 @@ public class EmployeeListFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
 
 
-                int image = R.drawable.ic_launcher_foreground;
+                int image = R.drawable.ic_photo_camera_back;
                 String name = etName.getText().toString().trim();
                 String jobTitle = etJobTitle.getText().toString().trim();
 
@@ -245,7 +245,7 @@ public class EmployeeListFragment extends Fragment {
 
         employeesList.add(e);
 
-        employeeAdapter.notifyDataSetChanged(); // acknowledge to adapter for updating list
+        employeeAdapter.notifyItemInserted(employeesList.size()-1); // acknowledge to adapter new data inserted
         Toast.makeText(getActivity(), "Added successfully", Toast.LENGTH_SHORT).show();
 
     }

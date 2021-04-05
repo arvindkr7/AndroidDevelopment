@@ -37,7 +37,7 @@
             android:layout_centerInParent="true"
             app:queryHint="Search for people"
             app:searchHintIcon="@drawable/ic_person_search"
-            android:background="@drawable/custom_searchview"
+
             />
         <ImageButton
             android:id="@+id/btn_addEmployee"

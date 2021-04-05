@@ -170,7 +170,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
 
                 builder.setView(dialogView);
 
-                builder.setTitle("Are you sure want to delete")
+                builder.setTitle("Are you sure want to delete?")
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {

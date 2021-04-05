@@ -10,14 +10,19 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         >
+        <View
+            android:layout_width="2dp"
+            android:layout_height="75dp"
+            android:background="@color/teal_200"
+            />
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_image_ecLayout"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:src="@drawable/ic_launcher_foreground"
+            android:src="@drawable/ic_photo_camera_back"
             android:padding="10dp"/>
         <TextView
             android:id="@+id/tv_name_ecLayout"
@@ -59,7 +64,8 @@
             android:text="Edit"
             android:src="@drawable/ic_edit"
             android:layout_marginRight="12dp"
-            android:background="@android:color/transparent"
+            android:padding="3dp"
+            android:background="@drawable/custom_edit_button"
 
             />
         <ImageButton
@@ -67,7 +73,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_delete"
-            android:background="@android:color/transparent"
+            android:padding="3dp"
+            android:background="@drawable/custom_edit_button"
 
 
             />
