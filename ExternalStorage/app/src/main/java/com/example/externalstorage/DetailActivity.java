@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -55,12 +56,15 @@ public class DetailActivity extends AppCompatActivity {
             String[] details = stringBuffer.toString().split("\n");
             tvUname.setText(details[0]);
             tvPass.setText(details[1]);
+            //tvUname.setText(stringBuffer.toString());
 
 
         }catch (FileNotFoundException e){
+            Log.i("filenotfounderror", e.toString());
             e.printStackTrace();
         }
         catch (IOException e){
+            Log.i("ioexception", e.toString());
             e.printStackTrace();
         }
 
