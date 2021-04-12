@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TabLayoutApp</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_chats_fragment">No chats started to display</string>
+    <string name="hello_chats_fragment">No more chats to display</string>
     <string name="hello_status_fragment">No Status yet to display</string>
     <string name="hello_calls_fragment">No Calls made to display</string>
 </resources>
