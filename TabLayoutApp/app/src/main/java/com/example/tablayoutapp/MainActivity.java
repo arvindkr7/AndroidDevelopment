@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
 
     ViewPager viewPager;
+
+    FloatingActionButton floatingActionButton;
 
 
     // firstly create ViewPagerAdapter
@@ -44,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
          */
+
+        floatingActionButton = findViewById(R.id.floatingButton);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFloatingActionButton();
+            }
+        });
+
 
 
     }
@@ -79,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void setFloatingActionButton(){
+
+
+
+        Intent intent = new Intent(MainActivity.this, NavigationDrawerActivity.class);
+        startActivity(intent);
     }
 
 }

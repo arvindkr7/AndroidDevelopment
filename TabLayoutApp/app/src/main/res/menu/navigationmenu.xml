@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+    <item android:id="@+id/chatsMenu"
+        android:title="Chats"
+        android:icon="@drawable/ic_chat"
+        />
+    <item android:id="@+id/statusMenu"
+        android:title="Status"
+        android:icon="@drawable/ic_history_toggle_off_24"
+        />
+    <item android:id="@+id/callsMenu"
+        android:title="Calls"
+        android:icon="@drawable/ic_phone_disabled"
+        />
+
+    </group>
+</menu>
